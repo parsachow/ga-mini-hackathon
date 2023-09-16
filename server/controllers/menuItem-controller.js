@@ -1,4 +1,4 @@
-const MenuItem = require('../models');
+const MenuItem = require('./models');
 
 const PAGINATION_LIMIT = 25;
 
