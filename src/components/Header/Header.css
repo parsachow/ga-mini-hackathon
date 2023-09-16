@@ -1,10 +1,12 @@
-.fa{
+.fa-shopping-cart{
     font-size: 5vw;
     float: right;
-    top: 0;
     padding-right: 2vw;
 }
 .navbar{
-    background-color: #CCADD9;
-    height: 5vw;
+    background:
+radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
+radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px),#CCADD9;
+    height: 5vw;    
+    background-size: 20px 20px;
 }

@@ -7,7 +7,7 @@ function Header(props) {
     <div>
       <header>      
         <nav className="navbar">
-          <div className="cart"><i class="fa fa-shopping-cart"></i></div>
+          <i class="fa fa-shopping-cart"></i>
         </nav>
       </header> 
     </div>
