@@ -5,20 +5,25 @@
 const express = require('express')
 const router = express.Router()
 
+const menuItemCtrl = require('../controllers/menuItem-controller')
+
 ///////////////////////////////
 // ROUTES
 ////////////////////////////////
 
-// PEOPLE INDEX ROUTE
-router.get("/", async (req, res) => {
-	res.status(200).json({message: "menuItem index route"})
-});
+// MENU ITEM INDEX ROUTE
+router.get("/", menuItemCtrl.index);
 
+// MENU ITEM CREATE ROUTE
+router.post("/", menuItemCtrl.create);
 
+// MENU ITEM SHOW ROUTE
+router.get("/:id", menuItemCtrl.getOne);
 
-// PEOPLE CREATE ROUTE
-router.post("/", async (req, res) =>  {
-	res.status(201).json({message: "menuItem create route"})
-});
+// MENU ITEM DELETE ROUTE
+router.delete("/:id", menuItemCtrl.delete);
+
+// MENU ITEM UPDATE ROUTE
+router.put("/:id", menuItemCtrl.update);
 
 module.exports = router
