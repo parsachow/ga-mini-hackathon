@@ -18,14 +18,19 @@ const orderItemSchema = new mongoose.Schema(
 );
 
 orderItemSchema.virtual('extPrice').get(function () {
-    return this.quantity * this.menuItem.price * (1-this.menuItem.discount);
+    return this.quantity * this.menuItem.price * (1 - this.menuItem.discount);
 });
 
 const orderSchema = new mongoose.Schema(
     {
         orderDate: Date,
-        orderStatus: String,
-        isPaid: { Type: Boolean, required: true, default: false },
+        orderStatus: {
+            type: String,
+            enum: ['incomplete', 'received', 'preparing', 'delivering', 'delivered'],
+            default: 'incomplete'
+
+        },
+        isPaid: { type: Boolean, required: true, default: false },
         orderItems: [
             orderItemSchema
         ],
@@ -81,12 +86,12 @@ orderSchema.methods.addItemToCart = async function (menuItemId) {
     return cart.save();
 }
 // instance method to change quantity of menuItems in the cart
-orderSchema.methods.setItemQty = async function(itemId, newQty){
+orderSchema.methods.setItemQty = async function (itemId, newQty) {
     const cart = this;
     const orderItem = cart.orderItems.find(orderItem => orderItem.menuItem._id.equals(itemId));
-    if(orderItem && newQty<= 0){
+    if (orderItem && newQty <= 0) {
         await orderItem.deleteOne();
-    }else if(orderItem){
+    } else if (orderItem) {
         orderItem.quantity = newQty;
     }
     return cart.save();
