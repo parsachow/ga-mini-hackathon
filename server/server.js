@@ -9,7 +9,8 @@ const cors = require("cors")
 
 
 require('./persistence/db');
-const menuItemRouter = require('../routes/menuItem-router')
+const menuItemRouter = require('./routes/menuItem-router');
+const ordersRouter = require('./routes/order-router');
 
 
 const DEBUG = process.env.NODE_ENV ? !process.env.NODE_ENV.toLocaleLowerCase() === 'production' : true;
@@ -36,6 +37,7 @@ app.use(cors());
 
 // API ROUTES
 app.use('/menu', menuItemRouter);
+app.use('/order',ordersRouter);
 
 // CATCH-ALL ROUTE FOR REACT-APP
 app.get('/*', (req, res) => {

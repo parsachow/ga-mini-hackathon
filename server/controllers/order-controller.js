@@ -79,13 +79,40 @@ async function completeOrderDelivery(req, res) {
     }
 }
 
+// Past orders index
+async function index(req, res) {
+    try {
+        res.json(
+            await Order.find({ userId: req.user._id, isPaid: true })
+        );
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}
+
+// Order details
+async function detail(req, res) {
+    try {
+        res.json(
+            await Order.findById(req.params._id)
+        )
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}
+
 
 
 module.exports = {
+    // CART
     getCart,
     addToCart,
     setItemQtyInCart,
     checkout,
+    // PAST ORDERS
+    index,
+    detail,
+    // RESTAURANT SIDE (DUMMY)
     startOrderPrep,
     startOrderDelivery,
     completeOrderDelivery,

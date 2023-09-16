@@ -11,13 +11,20 @@ const ordersCtrl = require('../controllers/order-controller');
 // ROUTES
 ////////////////////////////////
 
-// GET /api/orders/cart
+// GET /orders/cart
 router.get('/cart', ordersCtrl.getCart);
-// POST /api/orders/cart/items/:id
+// POST /orders/cart/items/:id
 router.post('/cart/items/:id', ordersCtrl.addToCart);
-// POST /api/orders/cart/checkout
+// POST /orders/cart/checkout
 router.post('/cart/checkout', ordersCtrl.checkout);
-// POST /api/orders/cart/qty
+// POST /orders/cart/qty
 router.put('/cart/qty', ordersCtrl.setItemQtyInCart);
+
+// GET /orders
+router.get('/');
+// GET /orders/:id
+router.get('/:id');
+// POST /orders/:id/save
+router.post('/:id/save');
 
 module.exports = router;
