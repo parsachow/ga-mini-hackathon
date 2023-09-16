@@ -6,7 +6,7 @@ const favicon = require('serve-favicon');
 const sanitize = require('express-mongo-sanitize');
 const cookieParser = require('cookie-parser');
 const cors = require("cors")
-const morgan = require("morgan")
+
 
 require('./persistence/db');
 const menuItemRouter = require('../routes/menuItem-router')
@@ -23,13 +23,19 @@ app.use(favicon(path.join(__dirname, '../build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(sanitize());
 app.use(cookieParser());
-app.use(express.urlencoded({extended:true}))
 
+// not necessary since we won't allow forms to be submitted per React's controlled input logic
+app.use(express.urlencoded({extended:true}));
+
+// we don't really need CORS middleware since we're doing a single project,
+// will introduce security issues
 app.use(cors());
-app.use(morgan("dev"));
+
+// morgan is already mounted, it's the very first middleware
+//app.use(morgan("dev"));
 
 // API ROUTES
-app.use('/menu', menuItemRouter)
+app.use('/menu', menuItemRouter);
 
 // CATCH-ALL ROUTE FOR REACT-APP
 app.get('/*', (req, res) => {
