@@ -9,7 +9,7 @@ const cors = require("cors")
 
 
 require('./persistence/db');
-const menuItemRouter = require('../routes/menuItem-router')
+const menuItemRouter = require('./routes/menuItem-router')
 
 
 const DEBUG = process.env.NODE_ENV ? !process.env.NODE_ENV.toLocaleLowerCase() === 'production' : true;
