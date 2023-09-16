@@ -30,6 +30,7 @@ export function SpeechRecognitionProvider({children}){
 
     const value = {
         hasSRSupport,
+        setHasSRSupport,
         recognition,
     }
     return (
