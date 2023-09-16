@@ -18,7 +18,7 @@ const orderItemSchema = new mongoose.Schema(
 );
 
 orderItemSchema.virtual('extPrice').get(function () {
-    return this.quantity * this.menuItem.price;
+    return this.quantity * this.menuItem.price * (1-this.menuItem.discount);
 });
 
 const orderSchema = new mongoose.Schema(
