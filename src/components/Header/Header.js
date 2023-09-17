@@ -1,5 +1,6 @@
 import "./Header.css"
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Header(props) {
     
@@ -7,7 +8,7 @@ function Header(props) {
     <div>
       <header>      
         <nav className="navbar">
-          <i class="fa fa-shopping-cart"></i>
+          <Link to="/cart"><i class="fa fa-shopping-cart"></i></Link>
         </nav>
       </header> 
     </div>
