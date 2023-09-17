@@ -11,9 +11,9 @@ export function Menu(props){
     const getMenuData = async () => {
         try {
           const response = await fetch(BASE_URL)
-          const allAppetizers = await response.filter((i) => {if(i.foodCategory=='appetizer') return i}).json()
-          const allEntrees = await response.filter((i) => {if(i.foodCategory=='entree') return i}).json()
-          const allDesserts = await response.filter((i) => {if(i.foodCategory=='dessert') return i}).json()
+          const allAppetizers = await response.filter((i) => {if(i.foodCategory==='appetizer') return i}).json()
+          const allEntrees = await response.filter((i) => {if(i.foodCategory==='entree') return i}).json()
+          const allDesserts = await response.filter((i) => {if(i.foodCategory==='dessert') return i}).json()
           if(response.ok){
             setAppetizers(allAppetizers)
             setEntrees(allEntrees)
@@ -33,8 +33,9 @@ export function Menu(props){
                 {appetizers && appetizers.map((meal)=>(
                     <Link to={`/menu/${meal._id}`}>
                         <div className="menuItem">
+                            <img className="mealImage" src={meal.image} alt={meal.imageDescription}/>
                             <h1 key={meal._id}>{meal.name}</h1>
-                            <img className="mealImage" src={meal.image} alt=""/>
+                            <p className="price">$ {meal.price}</p>
                         </div>
                     </Link>
                 ))}
@@ -44,8 +45,9 @@ export function Menu(props){
                 {entrees && entrees.map((meal)=>(
                     <Link to={`/menu/${meal._id}`}>
                         <div className="menuItem">
+                            <img className="mealImage" src={meal.image} alt={meal.imageDescription}/>
                             <h1 key={meal._id}>{meal.name}</h1>
-                            <img className="mealImage" src={meal.image} alt=""/>
+                            <p className="price">$ {meal.price}</p>
                         </div>
                     </Link>
                 ))}
@@ -55,8 +57,9 @@ export function Menu(props){
                 {desserts && desserts.map((meal)=>(
                     <Link to={`/menu/${meal._id}`}>
                         <div className="menuItem">
+                            <img className="mealImage" src={meal.image} alt={meal.imageDescription}/>
                             <h1 key={meal._id}>{meal.name}</h1>
-                            <img className="mealImage" src={meal.image} alt=""/>
+                            {/* <p className="price">{({meal.discount})?{${meal.price}}}</p> */}
                         </div>
                     </Link>
                 ))}

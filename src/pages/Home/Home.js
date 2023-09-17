@@ -38,8 +38,9 @@ export function Home(){
                     {dealMenu && dealMenu.map((meal)=>(
                         <Link to={`/menu/${meal._id}`}>
                             <div className="menuItem">
+                                <img className="mealImage" src={meal.image} alt={meal.imageDescription}/>
                                 <h1 key={meal._id}>{meal.name}</h1>
-                                <img className="mealImage" src={meal.image} alt=""/>
+                                <p className="price">$ {meal.price}</p>
                             </div>
                         </Link>
                     ))}
@@ -49,36 +50,3 @@ export function Home(){
     )
 }
 
-/**
- * const [showGood, setShowGood] = useState(false);
-const [menus, setMenus] = useState([]);
-
-  // Simulate fetch data from API
-  useEffect(() => {
-    async function fetchData() {
-      // After fetching data with axios or fetch api
-      // We process the data
-      const goodMenus = dataFromAPI.filter((i) => i.taste === "Good");
-      const restOfMenus = dataFromAPI.filter((i) => i.taste !== "Good");
-
-      // Combine two arrays into one using spread operator
-      // Put the good ones to the front of the array
-      setMenus([...goodMenus, ...restOfMenus]); 
-    }
-
-    fetchData();
-  }, []);
-
-return (
-  <div>
-    // Create a checkbox (you can change it to a toggle button)
-    <input type="checkbox" onChange={() => setShowGood(!showGood)} /> 
-
-    // Conditionally pass in menu data based on the value of toggle button "showGood"
-    <Table
-      data={showGood ? menus : menus.filter((i) => i.taste !== "Good")}
-    />
-  </div>
-);
-
- */
