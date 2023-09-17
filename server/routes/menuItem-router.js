@@ -6,7 +6,6 @@ const express = require('express');
 const router = express.Router();
 
 const menuItemCtrl = require('../controllers/menuItem-controller');
-const profileCtrl = require('../controllers/profile-controller')
 
 ///////////////////////////////
 // ROUTES
