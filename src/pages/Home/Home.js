@@ -11,7 +11,7 @@ export function Home(){
         async function fetchData() { 
           try {
             const response = await fetch(BASE_URL)
-            const deals = await response.filter((i) => {if(i.discount) return i}).json()
+            const deals = await response.filter((i) => (i.discount)? i : null).json()
             if(response.ok){
                 setDealMenu([...deals])
             }
@@ -40,7 +40,10 @@ export function Home(){
                             <div className="menuItem">
                                 <img className="mealImage" src={meal.image} alt={meal.imageDescription}/>
                                 <h1 key={meal._id}>{meal.name}</h1>
-                                <p className="price">$ {meal.price}</p>
+                                <p className="price">
+                                    <span className='initialPrice'>${meal.price}</span> 
+                                    <span>${meal.price - (meal.price*meal.discount)}</span>
+                                </p>
                             </div>
                         </Link>
                     ))}

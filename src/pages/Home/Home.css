@@ -31,3 +31,6 @@ input{
 .deals > h1{
     font-size: 3vw;
 }
+.initialPrice{
+    text-decoration: line-through;
+}

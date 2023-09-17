@@ -11,9 +11,9 @@ export function Menu(props){
     const getMenuData = async () => {
         try {
           const response = await fetch(BASE_URL)
-          const allAppetizers = await response.filter((i) => {if(i.foodCategory==='appetizer') return i}).json()
-          const allEntrees = await response.filter((i) => {if(i.foodCategory==='entree') return i}).json()
-          const allDesserts = await response.filter((i) => {if(i.foodCategory==='dessert') return i}).json()
+          const allAppetizers = await response.filter((i) => (i.foodCategory==='appetizer')? i: null).json()
+          const allEntrees = await response.filter((i) => (i.foodCategory==='entree')? i: null).json()
+          const allDesserts = await response.filter((i) => (i.foodCategory==='dessert')? i: null).json()
           if(response.ok){
             setAppetizers(allAppetizers)
             setEntrees(allEntrees)
@@ -35,7 +35,12 @@ export function Menu(props){
                         <div className="menuItem">
                             <img className="mealImage" src={meal.image} alt={meal.imageDescription}/>
                             <h1 key={meal._id}>{meal.name}</h1>
-                            <p className="price">$ {meal.price}</p>
+                            <p className="price">
+                                {meal.discount}?(
+                                    <span className="initialPrice">${meal.price}</span>
+                                    <span>${meal.price - (meal.price*meal.discount)}</span>):
+                                    (<span>${meal.price}</span>)
+                            </p>
                         </div>
                     </Link>
                 ))}
@@ -47,7 +52,12 @@ export function Menu(props){
                         <div className="menuItem">
                             <img className="mealImage" src={meal.image} alt={meal.imageDescription}/>
                             <h1 key={meal._id}>{meal.name}</h1>
-                            <p className="price">$ {meal.price}</p>
+                            <p className="price">
+                                {meal.discount}?(
+                                    <span className="initialPrice">${meal.price}</span>
+                                    <span>${meal.price - (meal.price*meal.discount)}</span>):
+                                    (<span>${meal.price}</span>)
+                            </p>
                         </div>
                     </Link>
                 ))}
@@ -59,7 +69,12 @@ export function Menu(props){
                         <div className="menuItem">
                             <img className="mealImage" src={meal.image} alt={meal.imageDescription}/>
                             <h1 key={meal._id}>{meal.name}</h1>
-                            {/* <p className="price">{({meal.discount})?{${meal.price}}}</p> */}
+                            <p className="price">
+                                {meal.discount}?(
+                                    <span className="initialPrice">${meal.price}</span>
+                                    <span>${meal.price - (meal.price*meal.discount)}</span>):
+                                    (<span>${meal.price}</span>)
+                            </p>
                         </div>
                     </Link>
                 ))}
