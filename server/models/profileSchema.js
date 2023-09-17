@@ -72,7 +72,7 @@ profileSchema.methods.removeSavedOrder = async function (orderId) {
 // Remove a favItem
 profileSchema.methods.removeFavItem = async function (itemId) {
     const idx = this.favItems.findIndex((item) => item.equals(itemId));
-    if(idx >=0){
+    if(idx >= 0){
         this.favItems.splice(idx,1);
         await this.save();
     }

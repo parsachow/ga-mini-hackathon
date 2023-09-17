@@ -30,7 +30,4 @@ router.delete("/:id", menuItemCtrl.delete);
 // MENU ITEM UPDATE ROUTE
 router.put("/:id", menuItemCtrl.update);
 
-// MENU ITEM SAVE TO FAVORITES ROUTE
-router.post("/:id/save",profileCtrl.saveMenuItem);
-
 module.exports = router
