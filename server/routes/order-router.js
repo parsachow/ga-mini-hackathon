@@ -24,7 +24,6 @@ router.put('/cart/qty', ordersCtrl.setItemQtyInCart);
 router.get('/');
 // GET /orders/:id
 router.get('/:id');
-// POST /orders/:id/save
-router.post('/:id/save');
+
 
 module.exports = router;
