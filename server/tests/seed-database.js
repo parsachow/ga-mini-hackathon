@@ -46,7 +46,7 @@ const seedDatabase = async () => {
     await Order.insertMany([
       {
         orderDate: new Date(),
-        orderStatus: 'received',
+        orderStatus: 'incomplete',
         isPaid: false,
         orderItems: [
           { menuItem: menuItems[0].toObject(), quantity: 2 },
