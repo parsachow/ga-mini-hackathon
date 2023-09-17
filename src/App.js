@@ -1,15 +1,15 @@
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Home from "./pages/Home/Home"
-import Settings from "./pages/Settings/Settings"
-import Menu from "./pages/Menu/Menu"
-import SignIn from "./pages/SignIn/SignIn"
-import SignUp from "./pages/SignUp/SignUp"
-import Cart from "./pages/Cart/Cart"
-import Checkout from "./pages/Checkout/Checkout"
-import Details from "./pages/Details/Details"
-import Favorites from "./pages/Favorites/Favorites"
-import Summary from "./pages/Summary/Summary"
+import {Header} from "./components/Header/Header";
+import {Footer} from "./components/Footer/Footer";
+import {Home} from "./pages/Home/Home"
+import {Settings} from "./pages/Settings/Settings"
+import {Menu} from "./pages/Menu/Menu"
+import {SignIn} from "./pages/SignIn/SignIn"
+import {SignUp} from "./pages/SignUp/SignUp"
+import {Cart} from "./pages/Cart/Cart"
+import {Checkout} from "./pages/Checkout/Checkout"
+import {Details} from "./pages/Details/Details"
+import {Favorites} from "./pages/Favorites/Favorites"
+import {Summary} from "./pages/Summary/Summary"
 
 import { Route, Routes } from "react-router-dom";
 import './App.css';

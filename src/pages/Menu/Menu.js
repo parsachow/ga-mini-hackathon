@@ -1,5 +1,8 @@
-function Menu(props){
+import { useState, useEffect } from "react";
+
+export function Menu(props){
     const [menu, setMenu] = useState(null);
+    const BASE_URL = "http://localhost:4000/Menu";
 
     const getMenuData = async () => {
         try {
@@ -26,4 +29,4 @@ function Menu(props){
         </div>
     )
 }
-export default Menu;
+// export default Menu;
