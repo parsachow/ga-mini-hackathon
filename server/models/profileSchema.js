@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const addressSchema = mongoose.Schema(
     {
-        name: {type: String},
+        name: { type: String },
         street: { type: String, required: true },
         city: { type: String, required: true },
         state: { type: String, required: true },
@@ -40,46 +40,54 @@ const profileSchema = new mongoose.Schema(
 );
 
 // Save an order
-profileSchema.methods.saveOrder = async function(orderId){
-    const existingOrders = new Set(this.savedOrders);
-    existingOrders.add(orderId);
-    this.savedOrders = [...existingOrders];
-    return await this.save();
+profileSchema.methods.saveOrder = async function (orderId) {
+    const idx = this.savedOrders.findIndex((order)=>order.equals(orderId));
+    if(idx === -1){
+        this.savedOrders.push(orderId);
+        await this.save();
+    }
+    return this;
 }
 
 // Save a menu item
-profileSchema.methods.saveFavItem = async function(itemId){
-    const existingItems = new Set(this.favItems);
-    existingItems.add(itemId);
-    this.favItems = [...existingItems];
-    return await this.save();
+profileSchema.methods.saveFavItem = async function (itemId) {
+    const idx = this.favItems.findIndex((item) => item.equals(itemId));
+    if (idx === -1) {
+        this.favItems.push(itemId);
+        await this.save();
+    }
+    return this;
 }
 
 // Remove an order from saved orders
-profileSchema.methods.removeSavedOrder = async function(orderId){
-    const existingOrders = new Set(this.savedOrders);
-    existingOrders.delete(orderId);
-    this.savedOrders = [...existingOrders];
-    return await this.save();
+profileSchema.methods.removeSavedOrder = async function (orderId) {
+    const idx = this.savedOrders.findIndex((order)=>order.equals(orderId));
+    if(idx>=0){
+        this.savedOrders.splice(idx,1);
+        await this.save();
+    }
+    return this;
 }
 
 // Remove a favItem
-profileSchema.methods.removeFavItem = async function(itemId){
-    const existingItems = new Set(this.favItems);
-    existingItems.delete(itemId);
-    this.favItems = [...existingItems];
-    return await this.save();
+profileSchema.methods.removeFavItem = async function (itemId) {
+    const idx = this.favItems.findIndex((item) => item.equals(itemId));
+    if(idx >=0){
+        this.favItems.splice(idx,1);
+        await this.save();
+    }
+    return this;
 }
 
 // Change an existing address or create a new one
-profileSchema.methods.changeAddress = async function (addressId, newAddressData){
+profileSchema.methods.changeAddress = async function (addressId, newAddressData) {
     let address = this.addresses.find((address) => address._id.equals(addressId));
-    if(address){
+    if (address) {
         address = {
             ...address,
             ...newAddressData
         }
-    }else{
+    } else {
         const Address = mongoose.model('Address', addressSchema);
         address = new Address(newAddressData);
         this.addresses.push(address);
@@ -88,10 +96,10 @@ profileSchema.methods.changeAddress = async function (addressId, newAddressData)
 }
 
 // Delete an existing address
-profileSchema.methods.deleteAddress = async function (addressId){
+profileSchema.methods.deleteAddress = async function (addressId) {
     const index = this.addresses.findIndex(address => address._id.equals(addressId));
-    if(index > -1){
-        this.addresses.splice(index,1);
+    if (index > -1) {
+        this.addresses.splice(index, 1);
     }
     return await this.save();
 }
