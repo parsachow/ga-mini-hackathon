@@ -13,6 +13,8 @@ import {Summary} from "./pages/Summary/Summary"
 
 import { Route, Routes } from "react-router-dom";
 import './App.css';
+import {Route, Routes,} from 'react-router-dom';
+import Home from './pages/Home'
 
 function App() {
   const URL = "http://localhost:4000/menu";

@@ -15,12 +15,15 @@
     "mongoose": "^7.5.2",
     "morgan": "^1.10.0",
     "passport": "^0.6.0",
+    "passport-google-oauth": "^2.0.0",
     "react": "^18.2.0",
     "react-document-meta": "^3.0.0-beta.2",
     "react-dom": "^18.2.0",
     "react-router": "^6.16.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4",
     "serve-favicon": "^2.5.0"
   },
   "scripts": {
@@ -51,6 +54,10 @@
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
-    "concurrently": "^8.2.1"
+    "@shelf/jest-mongodb": "^4.1.7",
+    "concurrently": "^8.2.1",
+    "jest": "^27.5.1",
+    "mongodb-memory-server": "^8.15.1",
+    "supertest": "^6.3.3"
   }
 }
