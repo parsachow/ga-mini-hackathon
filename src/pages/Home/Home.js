@@ -1,6 +1,7 @@
 import 'semantic-ui-css/semantic.min.css'
 import './Home.css'
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 export function Home(){
     const [dealMenu, setDealMenu] = useState([]);
@@ -35,10 +36,12 @@ export function Home(){
                 <h1>Ongoing Deals</h1>
                 <div className="eachMenu">
                     {dealMenu && dealMenu.map((meal)=>(
-                    <div className="menuItem">
-                        <h1 key={meal._id}>{meal.name}</h1>
-                        <img className="mealImage" src={meal.image} alt=""/>
-                    </div>
+                        <Link to={`/menu/${meal._id}`}>
+                            <div className="menuItem">
+                                <h1 key={meal._id}>{meal.name}</h1>
+                                <img className="mealImage" src={meal.image} alt=""/>
+                            </div>
+                        </Link>
                     ))}
                 </div>                
             </div>
