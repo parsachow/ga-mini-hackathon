@@ -10,9 +10,9 @@ export function Home(){
         async function fetchData() { 
           try {
             const response = await fetch(BASE_URL)
-            dealMenu = await response.filter((i) => {if(i.discount) return i}).json()
+            const deals = await response.filter((i) => {if(i.discount) return i}).json()
             if(response.ok){
-                setDealMenu([...dealMenu])
+                setDealMenu([...deals])
             }
           }catch(err){
               console.log(err)

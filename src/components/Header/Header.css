@@ -3,6 +3,18 @@
     float: right;
     padding-right: 2vw;
 }
+.signIn{
+    background-color: black;
+    font-size: 2vw;
+    color:white;
+    float: left;
+    margin-left: 2vw;
+    margin-top: 1vw;
+    border: none;
+}
+.signIn:hover{
+    background-color:#7ABF49;
+}
 .navbar{
     background:
 radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
