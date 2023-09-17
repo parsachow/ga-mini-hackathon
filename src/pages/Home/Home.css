@@ -1,0 +1,33 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;  
+}
+.home{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.search-container{
+    margin-top:1vw;
+    float: middle;
+    width: 100%;   
+}
+input{
+    height: 5vw;
+    width: 30vw;
+    font-size: 2vw;
+    text-align: center;
+}
+.search-container > div{
+    display: inline-block;
+    vertical-align: middle;
+}
+.microphone{
+    height: 5vw;
+}
+.deals > ul{
+    list-style-type: none;
+}
+.deals > h1{
+    font-size: 3vw;
+}
