@@ -1,31 +1,52 @@
-import {Header} from '../../components/Header/Header';
-import {Footer} from '../../components/Footer/Footer';
-import {DealCard} from '../../components/DealCard';
 import 'semantic-ui-css/semantic.min.css'
-import { Input, Icon } from 'semantic-ui-react'
+import './Home.css'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 export function Home(){
-    return(
-        <>
-            <Header />
-            <div>
-                <div className='search-container'>
-                    <Input icon placeholder='Search for food...'>
-                        <input />
-                        <Icon name='microphone' />
-                    </Input>
+    const [dealMenu, setDealMenu] = useState([]);
+    const BASE_URL = "http://localhost:4000/Menu";
+
+    useEffect(() => {
+        async function fetchData() { 
+          try {
+            const response = await fetch(BASE_URL)
+            const deals = await response.filter((i) => {if(i.discount) return i}).json()
+            if(response.ok){
+                setDealMenu([...deals])
+            }
+          }catch(err){
+              console.log(err)
+          }  
+        }    
+        fetchData();
+      }, []);
+    
+    return(        
+        <div className='home'>
+            <div className='search-container'>
+                <div>
+                    <input type="text" className='searchbar' name="searchbar" placeholder="Search for our menu..."/>
                 </div>
-                <br />
-                <div className='deals'>
-                    <h3>Ongoing Deals</h3>
-                    <ul>
-                        <li><DealCard /></li>
-                        <li><DealCard /></li>
-                        <li><DealCard /></li>                        
-                    </ul>
-                </div>
+                <div>
+                    <button className="microphone" onClick={""}><i class="fa fa-microphone"></i></button>
+                </div>                    
             </div>
-            <Footer />
-        </>
+            <div className='deals'>
+                <h1>Ongoing Deals</h1>
+                <div className="eachMenu">
+                    {dealMenu && dealMenu.map((meal)=>(
+                        <Link to={`/menu/${meal._id}`}>
+                            <div className="menuItem">
+                                <img className="mealImage" src={meal.image} alt={meal.imageDescription}/>
+                                <h1 key={meal._id}>{meal.name}</h1>
+                                <p className="price">$ {meal.price}</p>
+                            </div>
+                        </Link>
+                    ))}
+                </div>                
+            </div>
+        </div>        
     )
 }
+
