@@ -1,6 +1,7 @@
+import 'semantic-ui-css/semantic.min.css'
 import { Image, Item, } from 'semantic-ui-react'
 
-function DealCard(){
+export function DealCard(){
     return(
         <>
          <Item.Group link>
@@ -8,10 +9,9 @@ function DealCard(){
                 <Item.Image size='large' src='#' />
                 
                 <Item.Content>
-                 <Item.Header>Name of food</Item.Header>
-                <Item.Description>food description</Item.Description>
+                    <Item.Header>Name of food</Item.Header>
+                    <Item.Description>food description</Item.Description>
                 </Item.Content>
-
             </Item>
          </Item.Group>
 
@@ -19,5 +19,5 @@ function DealCard(){
     )
 }
 
-export default DealCard;
+
 
