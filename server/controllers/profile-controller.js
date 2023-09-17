@@ -22,8 +22,8 @@ async function getProfileOrError(user) {
 async function saveOrder(req, res) {
     try {
         const userProfile = await getProfileOrError(req.user._id);
-        await userProfile.saveOrder(req.params.id);
-        res.json(userProfile);
+        await userProfile.saveOrder(req.body.orderId);
+        res.json(userProfile.savedOrders);
     } catch (error) {
         res.status(400).json(error);
     }
@@ -33,8 +33,8 @@ async function saveOrder(req, res) {
 async function saveMenuItem(req, res) {
     try {
         const userProfile = await getProfileOrError(req.user._id);
-        await userProfile.saveFavItem(req.params.id);
-        res.json(userProfile);
+        await userProfile.saveFavItem(req.body.menuItem);
+        res.json(userProfile.favItems);
     } catch (error) {
         res.status(400).json(error)
     }
@@ -45,7 +45,7 @@ async function deleteSavedOrder(req, res) {
     try {
         const userProfile = await getProfileOrError(req.user._id);
         await userProfile.removeSavedOrder(req.params.id);
-        res.status(200);
+        res.json(userProfile.savedOrders);
     } catch (error) {
         res.status(400).json(error);
     }
@@ -56,7 +56,7 @@ async function deleteSavedMenuItem(req, res) {
     try {
         const userProfile = await getProfileOrError(req.user._id);
         await userProfile.removeFavItem(req.params.id);
-        res.status(200);
+        res.json(userProfile.favItems);
     } catch (error) {
         res.status(400).json(error);
     }
@@ -67,7 +67,7 @@ async function saveAddress(req, res) {
     try {
         const userProfile = await getProfileOrError(req.user._id);
         await userProfile.changeAddress("a", req.body);
-        res.json(userProfile);
+        res.json(userProfile.addresses);
     } catch (error) {
         res.status(400).json(error);
     }
@@ -78,7 +78,7 @@ async function changeAddress(req, res) {
     try {
         const userProfile = await getProfileOrError(req.user._id);
         await userProfile.changeAddress(req.params.id, req.body);
-        res.json(userProfile);
+        res.json(userProfile.addresses);
     } catch (error) {
         res.status(400).json(error);
     }
@@ -89,7 +89,7 @@ async function deleteAddress(req, res) {
     try {
         const userProfile = await getProfileOrError(req.user._id);
         await userProfile.deleteAddress(req.params.id);
-        res.status(200);
+        res.json(userProfile.addresses);
     } catch (error) {
         res.status(400).json(error);
     }
