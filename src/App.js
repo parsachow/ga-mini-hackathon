@@ -13,6 +13,7 @@ import {Summary} from "./pages/Summary/Summary"
 
 import { Route, Routes } from "react-router-dom";
 import './App.css';
+import LoginSuccess from "./components/LoginSuccess/LoginSuccess";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/details" element={<Details />} />
           <Route exact path="/favorites" element={<Favorites />} />
           <Route exact path="/summary" element={<Summary />} />
+          <Route exact path="/auth/login-success/:token" element={<LoginSuccess />} />
         </Routes>
       <Footer />
     </div>

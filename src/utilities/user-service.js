@@ -1,16 +1,16 @@
 export function logOut() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('jwt');
 }
 
 export function getToken() {
     // getItem will return null if the key does not exists
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
     if (!token) return null;
-    const payload = JSON.parse(atob(token.split('.')[1]));
+    const payload = parseJwt(token);
     // A JWT's exp is expressed in seconds, not miliseconds
     if (payload.exp * 1000 < Date.now()) {
         // Token has expired
-        localStorage.removeItem('token');
+        localStorage.removeItem('jwt');
         return null;
     }
     return token;
@@ -23,7 +23,7 @@ export function setToken(token) {
 export function getUser(){
     const token = getToken();
     if(token){
-        
+        return parseJwt(token).user;
     }
     return null;
 }
