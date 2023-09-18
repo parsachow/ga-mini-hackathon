@@ -8,6 +8,7 @@ export default function OrderComponent({ mode }) {
         const fetchCart = async () => {
             try {
                 const cart = await getCart();
+                console.log(cart);
                 setCart(cart);
             } catch (error) {
                 console.error(error);
@@ -15,19 +16,19 @@ export default function OrderComponent({ mode }) {
         }
         fetchCart();
     }, []);
-    const orderItems = cart.orderItems.map(orderItem => {
+    const orderItems = cart.orderItems ? cart.orderItems.map(orderItem => {
         return <OrderItem
             orderItem={orderItem}
             isPaid={cart.isPaid}
             key={orderItem._id} />
-    })
+    }) : '';
     return (
         <>
             {
                 mode === "cart" &&
                 <>
                     {
-
+                        !!orderItems.length && orderItems
                     }
                 </>
             }

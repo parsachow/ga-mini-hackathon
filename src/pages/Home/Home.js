@@ -33,7 +33,7 @@ export function Home(){
                         <Link to={`/menu/${meal._id}`}>
                             <div className="menuItem">
                                 <img className="mealImage" src={meal.imageUrl} alt={meal.imageDescription}/>
-                                <h1 className="mealName" key={meal._id}>{meal.name}</h1>
+                                <h2 className="mealName" key={meal._id}>{meal.name}</h2>
                                 <p className="price">
                                     <span className='initialPrice'>${meal.price.toFixed(2)}</span>&nbsp;&nbsp;
                                     <span>${(meal.price - (meal.price*meal.discount)).toFixed(2)}</span>

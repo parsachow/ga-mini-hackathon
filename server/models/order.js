@@ -58,10 +58,10 @@ orderSchema.virtual("totalQty").get(function () {
 orderSchema.statics.getCart = function (userId) {
     return this.findOneAndUpdate(
         // query
-        { user: userId, isPaid: false },
+        { userId, isPaid: false },
         // update document - provides values when inserting
         // we're doing this so it gets inserted for a new order
-        { user: userId },
+        { userId },
         // upsert option creates a document if it doesn't exist
         { upsert: true, new: true }
     );
