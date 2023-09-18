@@ -27,8 +27,7 @@ async function create(req, res, next) {
 // MENU ITEM SHOW ACTION
 async function detail(req, res, next) {
   try {
-    // send one person
-    console.log("I am here");
+    // send one meal
     res.json(await MenuItem.findById(req.params.id));
 
   } catch (error) {
@@ -40,7 +39,7 @@ async function detail(req, res, next) {
 // MENU ITEM DESTROY ACTION 
 async function destroy(req, res, next) {
   try {
-    // delete people by ID
+    // delete meal by ID
     res.json(await MenuItem.findByIdAndRemove(req.params.id));
   } catch (error) {
     //send error
@@ -51,7 +50,7 @@ async function destroy(req, res, next) {
 // MENU ITEM UPDATE ACTION
 async function update(req, res, next) {
   try {
-    // update people by ID, provide the form data, and return the updated document.
+    // update meal by ID, provide the form data, and return the updated document.
     res.json(
       await MenuItem.findByIdAndUpdate(req.params.id, req.body, { new: true })
     );
