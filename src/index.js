@@ -4,12 +4,15 @@ import './index.css';
 import 'semantic-ui-css/semantic.min.css'
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { SpeechRecognitionProvider } from './contexts/SpeechRecognitionContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <React.StrictMode>
-      <App />
+      <SpeechRecognitionProvider>
+        <App />
+      </SpeechRecognitionProvider>
     </React.StrictMode>
   </Router>
 );

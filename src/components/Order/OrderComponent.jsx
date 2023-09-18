@@ -20,7 +20,6 @@ export default function OrderComponent({ mode }) {
 
     const handleChangeQty = async (item, qty) => {
         const cart = await setItemQtyInCart(item, qty);
-        console.log('changing qty');
         setCart(cart);
     }
 
