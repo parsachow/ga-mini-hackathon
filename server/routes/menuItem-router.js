@@ -21,7 +21,7 @@ router.post("/", menuItemCtrl.create);
 router.get("/search", menuItemCtrl.search);
 
 // MENU ITEM SHOW ROUTE
-router.get("/:id", menuItemCtrl.getOne);
+router.get("/menu/:id", menuItemCtrl.getOne);
 
 // MENU ITEM DELETE ROUTE
 router.delete("/:id", menuItemCtrl.delete);
