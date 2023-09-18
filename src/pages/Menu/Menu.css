@@ -1,0 +1,25 @@
+.eachMenu{
+    margin: 2vw;
+    width: 100%;
+}
+.eachMenu >h1{
+    font-size: 3vw;
+}
+.search-container{
+    margin-top:1vw;
+    float: middle;
+    width: 100%;   
+}
+input{
+    height: 5vw;
+    width: 30vw;
+    font-size: 2vw;
+    text-align: center;
+}
+.search-container > div{
+    display: inline-block;
+    vertical-align: middle;
+}
+.microphone{
+    height: 5vw;
+}

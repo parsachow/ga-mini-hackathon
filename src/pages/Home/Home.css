@@ -6,28 +6,47 @@
     text-align: center;
     align-items: center;
     justify-content: center;
+    padding-bottom: 5vw;
 }
-.search-container{
-    margin-top:1vw;
-    float: middle;
-    width: 100%;   
-}
-input{
-    height: 5vw;
-    width: 30vw;
-    font-size: 2vw;
-    text-align: center;
-}
-.search-container > div{
-    display: inline-block;
-    vertical-align: middle;
-}
-.microphone{
-    height: 5vw;
+.menuButton{
+    margin:2vw;
+    height:3vw;
+    width:10vw;
 }
 .deals > ul{
     list-style-type: none;
 }
 .deals > h1{
     font-size: 3vw;
+}
+.initialPrice{
+    text-decoration: line-through;
+}
+.eachMenu{
+    left:0;
+    padding-right: 5vw; 
+}
+.menuItem{
+    display:flex;
+    margin: 2vw;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;       
+}
+.mealImage{
+    height: 10vw;
+    width: 10vw;
+    float: left;
+    left: 0;
+}
+.mealName{
+    float: middle;
+    width: 50vw;
+    font-size: 2vw;
+}
+.price{
+    font-size: 2vw;
+    float: right;
+    width: 7vw;
+    margin-right: 8vw;
 }
