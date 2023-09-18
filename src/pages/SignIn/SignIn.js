@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import './SignIn'
+import './SignIn.css'
 export function SignIn(props) {
 
     const handleGoogleLogin = async () => {
@@ -14,7 +14,7 @@ export function SignIn(props) {
 
     return (
         <>
-            <Link to="#!" onClick={handleGoogleLogin} className="loginButton">Login with google</Link>
+            <div className="loginButton"><Link to="#!" onClick={handleGoogleLogin} >Login with google</Link></div>
         </>
     );
 }
