@@ -35,7 +35,7 @@ export default function OrderComponent({ mode }) {
 
 
     return (
-        <>
+        <div className='cart-layout'>
             {
                 mode === "cart" &&
                 <>
@@ -48,6 +48,7 @@ export default function OrderComponent({ mode }) {
                         {
                             !!orderItems.length &&
                             <>
+                            <br />
                                 <div className="cart__actions">
                                     <span>Total: </span><span>$ {cart.orderTotal}</span>
                                 </div>
@@ -65,6 +66,6 @@ export default function OrderComponent({ mode }) {
                 <>
                 </>
             }
-        </>
+        </div>
     );
 }
