@@ -17,6 +17,7 @@ body {
     -moz-osx-font-smoothing: grayscale;    
   }
 .home{
+    padding-top: 5vw;
     text-align: center;
     align-items: center;
     justify-content: center;
