@@ -4,32 +4,29 @@ import { getMeal } from '../../utilities/meal-service'
 
 export function Details(props){
 
-  const [meal, setMeal] = useState(null)
+  const [meal, setMeal] = useState([])
   const { id } = useParams()
 
   useEffect(() => {
-    console.log(id)
     const handleRequest = async () => {
-		try {            
-            const mealData = await getMeal(id)
-            console.log(mealData)
-            setMeal(mealData)
-		}catch(err){
-				console.log(err)
-		}
+      try {            
+        const mealData = await getMeal(id)
+        console.log(mealData)
+        setMeal(mealData)
+      }catch(err){
+        console.log(err)
+      }
     }
-    handleRequest()}, [])
+    handleRequest()}, [id])
     
-    console.log(`Current Meal: ${JSON.stringify(meal)}`)
+    // console.log(`Current Meal: ${JSON.stringify(meal)}`)
 
     return (
         <div className="mealDetail">
-            <img className="mealDetailImage" src={meal.imageUrl} alt={meal.imageDescription}/>
-            <i class="fa fa-heart" className="favIcon"></i>
-            <h1>{meal.name}</h1>
-            <p>{meal.description}</p>
-            <button>-</button><input>1</input><button>+</button>
-            <button>Add to Cart</button>
+          <h1>{meal.name}</h1>
+            
+            {/* <button key={meal._id}>-</button><input key={meal._id}>1</input><button key={meal._id}>+</button>
+            <button key={meal._id}>Add to Cart</button> */}
         </div>
     )
 }

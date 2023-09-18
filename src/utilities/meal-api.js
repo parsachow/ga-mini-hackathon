@@ -6,7 +6,8 @@ export async function detail(id){
             method: 'GET',
         })
         if (res.ok) {
-            return res.json()
+            const detail = await res.json()
+            return detail
         }
     } catch (err) {
         console.log(err)
