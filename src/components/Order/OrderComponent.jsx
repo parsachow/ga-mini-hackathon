@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCart, setItemQtyInCart } from "../../utilities/orders-api";
 import OrderItem from "./OrderItem";
+import './OrderComponent.css';
 
 export default function OrderComponent({ mode }) {
     const [cart, setCart] = useState([]);
@@ -18,7 +19,7 @@ export default function OrderComponent({ mode }) {
     }, []);
 
     const handleChangeQty = async (item, qty) => {
-        const cart = await setItemQtyInCart(item,qty);
+        const cart = await setItemQtyInCart(item, qty);
         console.log('changing qty');
         setCart(cart);
     }
@@ -33,6 +34,7 @@ export default function OrderComponent({ mode }) {
     }) : '';
 
 
+
     return (
         <>
             {
@@ -40,6 +42,14 @@ export default function OrderComponent({ mode }) {
                 <>
                     {
                         !!orderItems.length && orderItems
+                    }
+                    {
+                        !!orderItems.length &&
+                        <>
+                            <div className="cart__actions">
+                                <span>Total: </span><span>$ {cart.orderTotal}</span>
+                            </div>
+                        </>
                     }
                 </>
             }

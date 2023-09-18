@@ -16,7 +16,7 @@ const router = express.Router();
 router.get('/google', (req, res) => {
     // generate the google url. Use state as CSRF protection
     const state = crypto.randomBytes(16).toString('hex');
-    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.GOOGLE_CLIENT_ID}&redirect_uri=${process.env.GOOGLE_CALLBACK}&response_type=code&scope=profile email&state=${state}`
+    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.GOOGLE_CLIENT_ID}&redirect_uri=${process.env.GOOGLE_CALLBACK}&response_type=code&scope=profile email&state=${state}&prompt=select_account`
     res.cookie('csrf_token', state, { signed: true, httpOnly: true });
     res.json({ url: authUrl });
 });
