@@ -1,0 +1,21 @@
+h2 {
+    color: white;
+    margin-top: 15vmin;
+}
+
+.cart-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    color: white;
+}
+
+.cart-btn {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    font-size: larger;
+
+}

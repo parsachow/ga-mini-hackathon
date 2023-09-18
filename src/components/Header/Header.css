@@ -15,7 +15,7 @@ svg:hover {
     color:white;
     float: left;
     margin-left: 2vw;
-    margin-top: 1vw;
+    margin-top: 1.5vmin;
     border: none;
     border-radius: 1vw;
     width: 10vw;
@@ -28,7 +28,7 @@ svg:hover {
     background:
 radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
 radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px),#CCADD9;
-    height: 5vw;    
+    height: 9vmin;    
     background-size: 20px 20px;
     position: fixed;
     width: 100%;
