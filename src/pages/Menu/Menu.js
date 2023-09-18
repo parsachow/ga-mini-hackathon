@@ -6,7 +6,7 @@ export function Menu(props){
     const [appetizers, setAppetizers] = useState([]);
     const [entrees, setEntrees] = useState([]);
     const [desserts, setDesserts] = useState([]);
-    const BASE_URL = "http://localhost:4000/Menu";
+    const BASE_URL = "http://localhost:4000/menu";
 
     const getMenuData = async () => {
         try {

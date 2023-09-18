@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export function Home(){
     const [dealMenu, setDealMenu] = useState([]);
-    const BASE_URL = "http://localhost:4000/Menu";
+    const BASE_URL = "http://localhost:4000/menu";
 
     useEffect(() => {
         async function fetchData() { 
