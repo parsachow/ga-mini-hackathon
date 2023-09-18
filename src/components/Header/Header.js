@@ -1,7 +1,7 @@
 import "./Header.css"
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getToken, getUser, logOut } from "../../utilities/user-service";
+import { getToken, logOut } from "../../utilities/user-service";
 
 
 export function Header(props) {  

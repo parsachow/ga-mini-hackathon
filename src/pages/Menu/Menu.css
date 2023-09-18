@@ -24,8 +24,9 @@ h2 {
     width: 30vw;
     font-size: 2vw;
     text-align: center;
-    color:black;
+
 }
+
 .search-container > div{
     display: inline-block;
     vertical-align: middle;

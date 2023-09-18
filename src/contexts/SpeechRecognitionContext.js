@@ -3,30 +3,31 @@ const { createContext, useContext, useState, useEffect } = require("react");
 
 const SpeechRecognitionContext = createContext();
 
-export function useSpeechRecognition(){
+export function useSpeechRecognition() {
     const context = useContext(SpeechRecognitionContext);
-    if(!context){
+    if (!context) {
         throw new Error('useSpeechRecognition must be used within a SpeechRecognitionProvider');
     }
     return context;
 }
 
-export function SpeechRecognitionProvider({children}){
+export function SpeechRecognitionProvider({ children }) {
     const [hasSRSupport, setHasSRSupport] = useState(false);
-    const [recognition,setRecognition] = useState(null);
+    const [recognition, setRecognition] = useState(null);
 
-    useEffect(()=>{
+    useEffect(() => {
         let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         let recognition;
-        try{
+        try {
             recognition = new SpeechRecognition();
             setHasSRSupport(true);
             setRecognition(recognition);
-        }catch(error){
+        } catch (error) {
             setHasSRSupport(false);
         }
 
-    },[]);
+    }, []);
+
 
     const value = {
         hasSRSupport,
