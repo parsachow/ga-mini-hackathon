@@ -1,8 +1,14 @@
-.fa-shopping-cart{
-    font-size: 5vw;
+.bi-cart3 {
     float: right;
-    padding-right: 2vw;
+    height: 9vmin;
+    width: 9vmin;
+    margin-right: 1vmin;
 }
+
+svg:hover {
+    fill: #7ABF49;
+}
+
 .signIn{
     background-color: black;
     font-size: 2vw;

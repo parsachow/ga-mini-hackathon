@@ -21,6 +21,7 @@ background-size: 16px 48px;
     height: 10vmin;
     width: 10vmin;
     margin-bottom: 1vmin;
+    margin-left: 1vmin;
     
 }
 .bi-suit-heart-fill{
@@ -34,7 +35,9 @@ background-size: 16px 48px;
     float: right;
     height: 10vmin;
     width: 10vmin;
+    padding-top: 0.5vmin;
     margin-right: 1vmin;
+    margin-bottom: 1vmin;
 }
 
 svg:hover {
