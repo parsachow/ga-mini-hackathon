@@ -54,7 +54,7 @@
       "last 1 safari version"
     ]
   },
-  
+
   "devDependencies": {
     "@shelf/jest-mongodb": "^4.1.7",
     "concurrently": "^8.2.1",
