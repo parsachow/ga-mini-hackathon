@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCart } from "../../utilities/orders-api";
+import OrderItem from "./OrderItem";
 
 export default function OrderComponent({ mode }) {
     const [cart, setCart] = useState([]);
@@ -14,20 +15,19 @@ export default function OrderComponent({ mode }) {
         }
         fetchCart();
     }, []);
+    const orderItems = cart.orderItems.map(orderItem => {
+        return <OrderItem
+            orderItem={orderItem}
+            isPaid={cart.isPaid}
+            key={orderItem._id} />
+    })
     return (
         <>
             {
                 mode === "cart" &&
                 <>
                     {
-                        cart.orderItems.length && cart.orderItems.map((orderItem) => {
-                            return (
-                                <>
-                                    <div>{orderItem.menuItem.name}</div>
-                                    <div>{orderItem.quantity}</div>
-                                </>
-                            );
-                        })
+
                     }
                 </>
             }

@@ -28,7 +28,7 @@ async function create(req, res, next) {
 async function detail(req, res, next) {
   try {
     // send one person
-    console.log("I am here")
+    console.log("I am here");
     res.json(await MenuItem.findById(req.params.id));
 
   } catch (error) {
