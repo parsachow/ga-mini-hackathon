@@ -1,8 +1,9 @@
-.eachMenu{
+.eachMenu {
     margin: 2vw;
     width: 100%;
 }
-.eachMenu >h1{
+
+.eachMenu>h1 {
     font-size: 5vw;
 }
 
@@ -14,29 +15,32 @@ h2 {
     font-size: 4vmin;
 }
 
-.search-container{
-    margin-top:1vw;
+.search-container {
+    margin-top: 1vw;
     float: middle;
-    width: 100%;   
+    width: 100%;
 }
-.searchbar{
+
+.searchbar {
     height: 5vw;
     width: 30vw;
     font-size: 2vw;
     text-align: center;
-
+    color: black;
 }
 
-.search-container > div{
+.search-container>div {
     display: inline-block;
     vertical-align: middle;
 }
-.microphone{
+
+.microphone {
     height: 5vw;
     background-color: whitesmoke;
     vertical-align: middle;
 }
-.fa-microphone{
+
+.fa-microphone {
     font-size: 4vw;
 }
 
