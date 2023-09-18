@@ -33,6 +33,7 @@ export function Menu(props){
 
     return(
         <div className="home">
+            <h1>Menu</h1>
             <div className='search-container'>
                 <div>
                     <input type="text" className='searchbar' name="searchbar" placeholder="Search our menu..."/>
@@ -42,12 +43,12 @@ export function Menu(props){
                 </div>                    
             </div>        
             <div className="eachMenu">
-                <h1>Appetizers</h1>
+                <h2>Appetizers</h2>
                 {appetizers && appetizers.map((meal)=>(
                     <Link to={`/menu/${meal._id}`}>
                         <div className="menuItem">
                             <img className="mealImage" src={meal.imageUrl} alt={meal.imageDescription}/>
-                            <h1 className="mealName" key={meal._id}>{meal.name}</h1>
+                            <h3 className="mealName" key={meal._id}>{meal.name}</h3>
                             <p className="price">
                                 {meal.discount?(
                                     <>
@@ -61,12 +62,12 @@ export function Menu(props){
                 ))}
             </div>
             <div className="eachMenu">
-                <h1>Entrees</h1>
+                <h2>Entrees</h2>
                 {entrees && entrees.map((meal)=>(
                     <Link to={`/menu/${meal._id}`}>
                         <div className="menuItem">
                             <img className="mealImage" src={meal.imageUrl} alt={meal.imageDescription}/>
-                            <h1 className="mealName" key={meal._id}>{meal.name}</h1>
+                            <h3 className="mealName" key={meal._id}>{meal.name}</h3>
                             <p className="price">
                                 {meal.discount?(
                                     <>
@@ -80,12 +81,12 @@ export function Menu(props){
                 ))}
             </div>
             <div className="eachMenu">
-                <h1>Desserts</h1>
+                <h2>Desserts</h2>
                 {desserts && desserts.map((meal)=>(
                     <Link to={`/menu/${meal._id}`}>
                         <div className="menuItem">
                             <img className="mealImage" src={meal.imageUrl} alt={meal.imageDescription}/>
-                            <h1 className="mealName" key={meal._id}>{meal.name}</h1>
+                            <h3 className="mealName" key={meal._id}>{meal.name}</h3>
                             <p className="price">
                                 {meal.discount?(
                                     <>
