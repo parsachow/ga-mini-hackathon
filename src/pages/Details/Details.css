@@ -1,0 +1,42 @@
+.mealDetail{
+    text-align: center;
+    margin-top: 5vw;
+    display: block;
+    align-items: center;
+    justify-content: center;    
+    padding-bottom: 5vw;
+    width:100%;
+}
+.quantity{
+    height: 2vw;
+    width: 3vw;
+}
+.dsection1{
+    display: flex;
+    vertical-align: middle;
+    justify-content: space-around;
+    margin-top: 2vw;
+    width:100%;
+    text-align: center;
+}
+.dsection2, .dsection3{ 
+    display: block;
+    text-align: center;
+    width:100%;
+    margin-top: 2vw;
+}
+.favLink{
+    padding: 6vw;
+    color:white;
+}
+.mealDetailImage{
+    height: 20vw;
+    width: 30vw;
+}
+.mealName{
+    text-align: center;
+    float: middle;
+}
+.mealDescription{
+    text-align: center;
+}

@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getMeal } from '../../utilities/meal-service'
+import './Details.css'
 
 export function Details(props) {
 
   const [meal, setMeal] = useState(null);
   const { id } = useParams();
+  const min = 1;
+  const max = 10;
+
+  const [value, setValue] = useState(1);
 
   useEffect(() => {
     const handleRequest = async () => {
@@ -20,14 +25,34 @@ export function Details(props) {
     handleRequest();
   }, [id]);
 
+  const handleChange = event => {
+    const value = Math.max(min, Math.min(max, Number(event.target.value)));
+    setValue(value);
+  };
+
+  const addFavorites = e =>{
+    fetch("/profile/favorites", {method: 'POST',body:{menuItem:"menuItem._id"}});
+
+  }
+
   return ( meal &&
     <div className="mealDetail">
-      <img className="mealDetailImage" src={meal.imageUrl} alt={meal.imageDescription} />
-      <i className="favIcon"></i>
-      <h1>{meal.name}</h1>
-      <p>{meal.description}</p>
-      <button>-</button><input type="number" /><button>+</button>
-      <button>Add to Cart</button>
+      <div className="dsection1">
+        <div>
+          <img className="mealDetailImage" src={meal.imageUrl} alt={meal.imageDescription} />
+        </div>
+        <div><i className="fa fa-heart favLink" onClick={addFavorites}></i></div>
+      </div>
+      <div className="dsection2">
+          <h1 className="mealName">{meal.name}</h1>
+          <p className="mealDescription">{meal.description}</p>
+      </div>
+      <div className="dsection3">
+        <div>
+          <input type="number" placeholder="1" value={value} onChange={handleChange} className="quantity" />
+        </div>
+        <div><button>Add to Cart</button></div>       
+      </div>
     </div>
   );
 }

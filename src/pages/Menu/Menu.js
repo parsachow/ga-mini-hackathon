@@ -33,7 +33,7 @@ export function Menu(props){
 
     return(
         <div className="home">
-            <h1>Menu</h1>
+            
             <div className='search-container'>
                 <div>
                     <input type="text" className='searchbar' name="searchbar" placeholder="Search our menu..."/>
@@ -41,7 +41,8 @@ export function Menu(props){
                 <div>
                     <button className="microphone" onClick={""}><i class="fa fa-microphone"></i></button>
                 </div>                    
-            </div>        
+            </div>
+            <h1 className="eachMenu">Menu</h1>        
             <div className="eachMenu">
                 <h2>Appetizers</h2>
                 {appetizers && appetizers.map((meal)=>(

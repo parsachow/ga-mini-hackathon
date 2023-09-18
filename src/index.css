@@ -1,6 +1,9 @@
 body {
   margin: 0;
   font-family: Tahoma, "Trebuchet MS", sans-serif;
+  color: white;
+  background-color: rgb(28, 26, 26);
+  
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 }

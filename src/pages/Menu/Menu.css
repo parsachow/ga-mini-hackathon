@@ -10,7 +10,7 @@
     float: middle;
     width: 100%;   
 }
-input{
+.searchbar{
     height: 5vw;
     width: 30vw;
     font-size: 2vw;
@@ -22,4 +22,9 @@ input{
 }
 .microphone{
     height: 5vw;
+    background-color: whitesmoke;
+    vertical-align: middle;
+}
+.fa-microphone{
+    font-size: 4vw;
 }
