@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getMeal } from '../../utilities/meal-service'
 import './Details.css'
+import sendRequest from "../../utilities/send-request";
 
 export function Details(props) {
 
@@ -30,8 +31,8 @@ export function Details(props) {
     setValue(value);
   };
 
-  const addFavorites = e =>{
-    fetch("/profile/favorites", {method: 'POST',body:{menuItem:"menuItem._id"}});
+  const addFavorites = async e =>{
+    await sendRequest("/profile/favorites", "post", {menuItem:"menuItem._id"});
 
   }
 
