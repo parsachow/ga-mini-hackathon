@@ -2,31 +2,32 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getMeal } from '../../utilities/meal-service'
 
-export function Details(props){
+export function Details(props) {
 
-  const [meal, setMeal] = useState([])
-  const { id } = useParams()
+  const [meal, setMeal] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     const handleRequest = async () => {
-      try {            
+      try {
         const mealData = await getMeal(id)
         console.log(mealData)
         setMeal(mealData)
-      }catch(err){
+      } catch (err) {
         console.log(err)
       }
     }
-    handleRequest()}, [id])
-    
-    // console.log(`Current Meal: ${JSON.stringify(meal)}`)
+    handleRequest();
+  }, [id]);
 
-    return (
-        <div className="mealDetail">
-          <h1>{meal.name}</h1>
-            
-            {/* <button key={meal._id}>-</button><input key={meal._id}>1</input><button key={meal._id}>+</button>
-            <button key={meal._id}>Add to Cart</button> */}
-        </div>
-    )
+  return ( meal &&
+    <div className="mealDetail">
+      <img className="mealDetailImage" src={meal.imageUrl} alt={meal.imageDescription} />
+      <i className="favIcon"></i>
+      <h1>{meal.name}</h1>
+      <p>{meal.description}</p>
+      <button>-</button><input type="number" /><button>+</button>
+      <button>Add to Cart</button>
+    </div>
+  );
 }
