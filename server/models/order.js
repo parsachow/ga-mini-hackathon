@@ -80,7 +80,9 @@ orderSchema.methods.addItemToCart = async function (menuItemId) {
         // Get the item from the "catalog"
         // Note how the mongoose.model method behaves as a getter when passed one arg vs. two
         const Item = mongoose.model('MenuItem');
-        const item = await Item.findById(menuItemId);
+        const OrderItem = mongoose.model('OrderItem',orderItemSchema);
+        const menuItem = await Item.findById(menuItemId);
+        const item = new OrderItem({menuItem});
         cart.orderItems.push(item);
     }
     return cart.save();

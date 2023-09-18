@@ -13,14 +13,14 @@ export default function OrderItem({orderItem, handleChangeQty, isPaid}){
         {!isPaid &&
           <button
             className="btn-xs"
-            onClick={() => handleChangeQty(orderItem.menuItem._id, orderItem.qty - 1)}
+            onClick={() => handleChangeQty(orderItem.menuItem._id, orderItem.quantity - 1)}
           >−</button>
         }
-        <span>{orderItem.qty}</span>
+        <span>{orderItem.quantity}</span>
         {!isPaid &&
           <button
             className="btn-xs"
-            onClick={() => handleChangeQty(orderItem.menuItem._id, orderItem.qty + 1)}
+            onClick={() => handleChangeQty(orderItem.menuItem._id, orderItem.quantity + 1)}
           >+</button>
         }
       </div>

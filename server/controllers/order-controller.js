@@ -28,6 +28,7 @@ async function setItemQtyInCart(req, res) {
     try {
         const cart = await Order.getCart(req.user._id);
         await cart.setItemQty(req.body.itemId, req.body.newQty);
+        console.log(cart);
         res.json(cart);
     } catch (error) {
         res.status(400).json(error);
