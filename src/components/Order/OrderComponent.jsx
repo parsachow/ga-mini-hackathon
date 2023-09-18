@@ -40,17 +40,21 @@ export default function OrderComponent({ mode }) {
             {
                 mode === "cart" &&
                 <>
-                    {
-                        !!orderItems.length && orderItems
-                    }
-                    {
-                        !!orderItems.length &&
-                        <>
-                            <div className="cart__actions">
-                                <span>Total: </span><span>$ {cart.orderTotal}</span>
-                            </div>
-                        </>
-                    }
+                    <div className="order__summary">
+                        {
+                            !!orderItems.length &&
+                             orderItems 
+
+                        }
+                        {
+                            !!orderItems.length &&
+                            <>
+                                <div className="cart__actions">
+                                    <span>Total: </span><span>$ {cart.orderTotal}</span>
+                                </div>
+                            </>
+                        }
+                    </div>
                 </>
             }
             {
