@@ -20,7 +20,7 @@ const bearer = require('./middleware/bearer');
 const ensureLoggedIn = require('./middleware/ensureLoggedIn');
 
 const DEBUG = process.env.NODE_ENV ? process.env.NODE_ENV.toLocaleLowerCase() !== 'production' : true; // Fix DEBUG logic
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 4000;
 const configureApp = (customMiddleware) => {
 
     const app = express();
