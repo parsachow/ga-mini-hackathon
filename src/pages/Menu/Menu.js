@@ -1,61 +1,107 @@
 import { useState, useEffect } from "react";
 import './Menu.css'
 import { Link } from 'react-router-dom';
+import { useSpeechRecognition } from "../../contexts/SpeechRecognitionContext";
 
-export function Menu(props){
+export function Menu(props) {
     const [appetizers, setAppetizers] = useState([]);
     const [entrees, setEntrees] = useState([]);
     const [desserts, setDesserts] = useState([]);
     const BASE_URL = "http://localhost:4000/menu";
+    const { hasSRSupport, recognition } = useSpeechRecognition();
+    const [transcribing, setTranscribing] = useState(false);
+    const [searchText, setSearchText] = useState('');
 
-    useEffect(() =>{
+    useEffect(() => {
         const getMenuData = async () => {
             try {
-              const response = await fetch(BASE_URL)
-              
-              if(response.ok){
-                const res = (await response.json())
-                const allAppetizers = res.filter((i) => i.foodCategory==='appetizer'? i: null)
-                const allEntrees = res.filter((i) => i.foodCategory==='entree'? i: null)
-                const allDesserts = res.filter((i) => i.foodCategory==='dessert'? i: null)
-                console.log(allAppetizers)
-                console.log(allEntrees)
-                console.log(allDesserts)
-                setAppetizers([...allAppetizers])
-                setEntrees([...allEntrees])
-                setDesserts([...allDesserts])
-              }
-            }catch(err){
-                console.log(err)
-            }  
-        };
-        getMenuData()}, []);
+                const response = await fetch(BASE_URL)
 
-    return(
+                if (response.ok) {
+                    const res = (await response.json())
+                    const allAppetizers = res.filter((i) => i.foodCategory === 'appetizer' ? i : null)
+                    const allEntrees = res.filter((i) => i.foodCategory === 'entree' ? i : null)
+                    const allDesserts = res.filter((i) => i.foodCategory === 'dessert' ? i : null)
+                    console.log(allAppetizers)
+                    console.log(allEntrees)
+                    console.log(allDesserts)
+                    setAppetizers([...allAppetizers])
+                    setEntrees([...allEntrees])
+                    setDesserts([...allDesserts])
+                }
+            } catch (err) {
+                console.log(err)
+            }
+        };
+        getMenuData()
+    }, []);
+
+    const transcribe = evt => {
+        if (!hasSRSupport) return;
+        if (transcribing) {
+            recognition.stop();
+            console.log('stopping transcription');
+            setTranscribing(false);
+        }
+
+        recognition.onstart = () => {
+            console.log('Audio transcription started');
+        }
+        recognition.onresult = e => {
+            console.log(`You said ${e.results[0][0].transcript}`);
+            setSearchText(e.results[0][0].transcript);
+        }
+        recognition.onerror = (error) => {
+            console.error(error);
+        }
+        recognition.onspeechend = () => {
+            console.log('Audio transcription stopped');
+            recognition.stop();
+            setTranscribing(false);
+        }
+        if (!transcribing) {
+            recognition.start();
+            setTranscribing(true);
+        }
+
+    }
+
+    const onChangeSearchText = e => {
+        setSearchText(e.target.value);
+    }
+    return (
         <div className="home">
-            
+
             <div className='search-container'>
                 <div>
-                    <input type="text" className='searchbar' name="searchbar" placeholder="Search our menu..."/>
+                    <input
+                        type="search"
+                        className='searchbar'
+                        name="searchbar"
+                        placeholder="Search our menu..."
+                        value={searchText}
+                        onChange={onChangeSearchText}
+                    />
                 </div>
                 <div>
-                    <button className="microphone" onClick={""}><i class="fa fa-microphone"></i></button>
-                </div>                    
+                    {hasSRSupport && <button className="microphone" onClick={transcribe}>
+                        <i class={`fa fa-microphone${transcribing ? "-slash" : ""}`}></i></button>}
+                </div>
             </div>
-            <h1 className="eachMenu">Menu</h1>        
+            <h1 className="eachMenu">Menu</h1>
             <div className="eachMenu">
                 <h2>Appetizers</h2>
-                {appetizers && appetizers.map((meal)=>(
+                {appetizers && appetizers.map((meal) => (
                     <Link to={`/menu/${meal._id}`}>
                         <div className="menuItem">
-                            <img className="mealImage" src={meal.imageUrl} alt={meal.imageDescription}/>
+                            <img className="mealImage" src={meal.imageUrl} alt={meal.imageDescription} />
                             <h3 className="mealName" key={meal._id}>{meal.name}</h3>
                             <p className="price">
-                                {meal.discount?(
+                                {meal.discount ? (
                                     <>
                                         <span className="initialPrice">${meal.price.toFixed(2)}</span>&nbsp;&nbsp;
-                                        <span>${(meal.price - (meal.price*meal.discount)).toFixed(2)}</span>
-                                    </>):(<span>${meal.price.toFixed(2)}</span>)
+                                        <span>${(meal.price - (meal.price * meal.discount)).toFixed(2)}</span>
+                                    </>) : (<span>${meal.price.toFixed(2)}</span>)
                                 }
                             </p>
                         </div>
@@ -64,17 +110,17 @@ export function Menu(props){
             </div>
             <div className="eachMenu">
                 <h2>Entrees</h2>
-                {entrees && entrees.map((meal)=>(
+                {entrees && entrees.map((meal) => (
                     <Link to={`/menu/${meal._id}`}>
                         <div className="menuItem">
-                            <img className="mealImage" src={meal.imageUrl} alt={meal.imageDescription}/>
+                            <img className="mealImage" src={meal.imageUrl} alt={meal.imageDescription} />
                             <h3 className="mealName" key={meal._id}>{meal.name}</h3>
                             <p className="price">
-                                {meal.discount?(
+                                {meal.discount ? (
                                     <>
                                         <span className="initialPrice">${meal.price.toFixed(2)}</span>&nbsp;&nbsp;
-                                        <span>${(meal.price - (meal.price*meal.discount)).toFixed(2)}</span>
-                                    </>):(<span>${meal.price.toFixed(2)}</span>)
+                                        <span>${(meal.price - (meal.price * meal.discount)).toFixed(2)}</span>
+                                    </>) : (<span>${meal.price.toFixed(2)}</span>)
                                 }
                             </p>
                         </div>
@@ -83,17 +129,17 @@ export function Menu(props){
             </div>
             <div className="eachMenu">
                 <h2>Desserts</h2>
-                {desserts && desserts.map((meal)=>(
+                {desserts && desserts.map((meal) => (
                     <Link to={`/menu/${meal._id}`}>
                         <div className="menuItem">
-                            <img className="mealImage" src={meal.imageUrl} alt={meal.imageDescription}/>
+                            <img className="mealImage" src={meal.imageUrl} alt={meal.imageDescription} />
                             <h3 className="mealName" key={meal._id}>{meal.name}</h3>
                             <p className="price">
-                                {meal.discount?(
+                                {meal.discount ? (
                                     <>
                                         <span className="initialPrice">${meal.price.toFixed(2)}</span>&nbsp;&nbsp;
-                                        <span>${(meal.price - (meal.price*meal.discount)).toFixed(2)}</span>
-                                    </>):(<span>${meal.price.toFixed(2)}</span>)
+                                        <span>${(meal.price - (meal.price * meal.discount)).toFixed(2)}</span>
+                                    </>) : (<span>${meal.price.toFixed(2)}</span>)
                                 }
                             </p>
                         </div>
