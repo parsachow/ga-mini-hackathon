@@ -3,8 +3,17 @@
     width: 100%;
 }
 .eachMenu >h1{
-    font-size: 3vw;
+    font-size: 5vw;
 }
+
+h1 {
+    font-size: 5vmin;
+}
+
+h2 {
+    font-size: 4vmin;
+}
+
 .search-container{
     margin-top:1vw;
     float: middle;
@@ -15,8 +24,9 @@
     width: 30vw;
     font-size: 2vw;
     text-align: center;
-    color: black;
+
 }
+
 .search-container > div{
     display: inline-block;
     vertical-align: middle;
@@ -28,4 +38,9 @@
 }
 .fa-microphone{
     font-size: 4vw;
+}
+
+.bi-mic-fill {
+    height: 5vmin;
+    width: 5vmin;
 }
