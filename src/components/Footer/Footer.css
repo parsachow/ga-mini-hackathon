@@ -9,20 +9,34 @@ linear-gradient(63deg, transparent 34%, #999 38%, #999 58%, transparent 62%),
 background-size: 16px 48px;
     height: 5vw;
     width: 100%;
-    text-align: center;   
+    /* text-align: center;    */
 }
-.fa{
+.bi{
     font-size: 5vw;
     color: black;
 }
-.fa:hover{
-    color: #7ABF49;
-}
-.fa-gear{    
-    float: right;
-    padding-right: 2vw;
-}
-.fa-home{
+
+.bi-house-door-fill{
     float: left;
-    padding-left: 2vw;
+    height: 10vmin;
+    width: 10vmin;
+    margin-bottom: 1vmin;
+    
+}
+.bi-suit-heart-fill{
+    float: center;
+    height: 10vmin;
+    width: 10vmin;
+    margin-bottom: 1vmin;
+}
+
+.bi-gear-fill{
+    float: right;
+    height: 10vmin;
+    width: 10vmin;
+    margin-right: 1vmin;
+}
+
+svg:hover {
+    fill: #7ABF49;
 }
