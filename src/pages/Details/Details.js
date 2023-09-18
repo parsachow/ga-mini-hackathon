@@ -57,7 +57,7 @@ export function Details(props) {
         <div>
           <input type="number" placeholder="1" value={value} onChange={handleChange} className="quantity" />
         </div>
-        <div><button onClick={()=>addToCart(meal._id)}>Add to Cart</button></div>
+        <div><button className="cart-btn" onClick={()=>addToCart(meal._id)}>Add to Cart</button></div>
       </div>
     </div>
   );
