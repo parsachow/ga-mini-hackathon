@@ -13,9 +13,16 @@
 }
 
 .cart-btn {
-    background-color: white;
+    background-color: #FBBE21;
     color: black;
     padding: 10px;
     font-size: larger;
 
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
