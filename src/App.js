@@ -34,7 +34,7 @@ function App() {
           <Route exact path="/summary" element={<Summary />} />
           <Route exact path="/auth/login-success/:token" element={<LoginSuccess />} />
         </Routes>
-      <Footer />
+      
     </div>
   );
 }

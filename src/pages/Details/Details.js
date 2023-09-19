@@ -45,19 +45,20 @@ export function Details(props) {
     <div className="mealDetail">
       <div className="dsection1">
         <div>
-          <img className="mealDetailImage" src={meal.imageUrl} alt={meal.imageDescription} />
+          <img tabIndex={1} className="mealDetailImage" src={meal.imageUrl} alt={meal.imageDescription} />
         </div>
-        <div><i className="fa fa-heart favLink" onClick={addFavorites}></i></div>
+        <div><i tabIndex={2} aria-label="add to favorites" className="fa fa-heart favLink" onClick={addFavorites}></i></div>
       </div>
       <div className="dsection2">
-        <h1 className="mealName">{meal.name}</h1>
-        <p className="mealDescription">{meal.description}</p>
+        <h1  tabIndex={1} className="mealName">{meal.name}</h1>
+        <p  tabIndex={1} className="mealDescription">{meal.description}</p>
       </div>
       <div className="dsection3">
         <div>
-          <input type="number" placeholder="1" value={value} onChange={handleChange} className="quantity" />
+          <label htmlFor="qty">quantity</label>
+          <input  tabIndex={1}  id="qty" type="number" placeholder="1" value={value} onChange={handleChange} className="quantity" />
         </div>
-        <div><button className="cart-btn" onClick={()=>addToCart(meal._id)}>Add to Cart</button></div>
+        <div><button tabIndex={1}  className="cart-btn" onClick={()=>addToCart(meal._id)}>Add to Cart</button></div>
       </div>
     </div>
   );
