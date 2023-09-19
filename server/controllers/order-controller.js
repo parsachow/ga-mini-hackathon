@@ -16,7 +16,8 @@ async function getCart(req, res) {
 async function addToCart(req, res) {
     try {
         const cart = await Order.getCart(req.user._id);
-        await cart.addItemToCart(req.params.id);
+        const qty = req.body.quantity || 1;
+        await cart.addItemToCart(req.params.id, qty);
         res.json(cart);
     } catch (error) {
         res.status(400).json(error);

@@ -3,8 +3,8 @@ import sendRequest from './send-request';
 const BASE_URL = "http://localhost:4000/orders"
 
 
-export const addItemToCart = async (itemId) => {
-    return await sendRequest(`${BASE_URL}/cart/items/${itemId}`, "post");
+export const addItemToCart = async (itemId, qty = 1) => {
+    return await sendRequest(`${BASE_URL}/cart/items/${itemId}`, "post", { quantity: qty });
 }
 
 export const getCart = async () => {

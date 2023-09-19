@@ -4,9 +4,7 @@ body {
   margin: 0;  
   color: black;
   background-color: white;
-  font-family: Helvetica, Arial, sans-serif;
-  margin: 0 10px; 
-  padding: 0 10px;
+  font-family: Helvetica, Arial, sans-serif !important;
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 }

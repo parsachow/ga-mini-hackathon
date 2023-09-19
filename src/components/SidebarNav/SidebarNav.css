@@ -1,9 +1,9 @@
 .navbar {
     background-color: #ffffff;
-    height: 80px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    z-index: 105;
   }
   
   .menu-bars {
@@ -12,22 +12,21 @@
     font-size: 2rem;
     background-color: transparent;
     color: #000;
-    z-index: 5;
-  }
-
-
-  
+    z-index: 105;
+    position: fixed;
+    top: clamp(5px,5rem,10px);
+  }  
   .nav-menu {
     background-color: #ffffff;
     width: 250px;
-    height: 100vh;
+    height: 45vh;
     display: flex;
     justify-content: center;
     position: fixed;
     top: 0;
     left: -100%;
     transition: 850ms;
-    z-index: 10;
+    z-index: 105;
   }
   
   .nav-menu.active {
