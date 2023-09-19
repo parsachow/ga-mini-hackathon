@@ -3,6 +3,7 @@ import './Home.css'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import MenuItem from "../../components/MenuItem/MenuItem";
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 
 export function Home(){
@@ -28,7 +29,8 @@ export function Home(){
 
     return(  
         <div className='home'> 
-            <img className="topImage" src="https://i.imgur.com/i3LZenx.jpg"></img>   
+            <img className="topImage" src="https://i.imgur.com/i3LZenx.jpg"></img> 
+            <div className='filterbar'><SearchBar /></div>
             {menu.map(item =>
                 <MenuItem 
                     itemName={item.name} 
