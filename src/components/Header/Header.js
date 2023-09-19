@@ -17,6 +17,7 @@ export function Header({ cart }) {
     logOut();
     setJwt(getToken());
     navigate('/');
+    window.location.href = window.location.href;
   }
   return (
     <header>

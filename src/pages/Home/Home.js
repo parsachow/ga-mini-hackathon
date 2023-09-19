@@ -7,10 +7,12 @@ import FoodCategory from '../../components/FoodCategory/FoodCategory';
 import { getUser } from '../../utilities/user-service';
 import { addItemToCart } from '../../utilities/orders-api';
 import Deals from '../../components/Deals/Deals';
+import sendRequest from '../../utilities/send-request';
 
 export function Home({setCart}){
     const [menu, setMenu] = useState([]);
     const [filteredMenu,setFilteredMenu] = useState([]);
+    const [favItems, setFavItems] = useState([]);
     const navigate = useNavigate();
     const BASE_URL = "http://localhost:4000/menu";
 
@@ -27,8 +29,18 @@ export function Home({setCart}){
           }catch(err){
               console.log(err)
           }  
+        }
+        async function fetchProfile(){
+            try {
+                if(!getUser()) return;
+                const res = await sendRequest(`/profile`);
+                setFavItems(res.favItems);
+            } catch (error) {
+                console.error(error);
+            }
         }    
         fetchData();
+        fetchProfile();
       }, []);
     
       const search = text => {
@@ -49,6 +61,17 @@ export function Home({setCart}){
         const cart = await addItemToCart(itemId);
         setCart(cart);
     }
+
+    const handleToggleFavorite = async (itemId) => {
+        if (!getUser()) return navigate('/signin');
+        let favorites;
+        if (favItems && favItems.includes(itemId)) {
+          favorites = await sendRequest(`/profile/favorites/${itemId}`,'DELETE');
+        } else {
+          favorites = await sendRequest(`/profile/favorites`, 'POST', { menuItem: itemId });
+        }
+        setFavItems(favorites);
+      }
 
     return(  
         <div className='home'> 
@@ -72,6 +95,8 @@ export function Home({setCart}){
                     key={item._id}
                     itemId={item._id}
                     onClick={handleAddToCart}
+                    favIconToggled={!!(favItems && favItems.includes(item._id))}
+                    onToggleFavItem={handleToggleFavorite}
                 />
             )}
             <h2 className="titleNameTag"><span className='titleName'>Today's Special</span></h2>
