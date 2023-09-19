@@ -14,13 +14,14 @@ import {Summary} from "./pages/Summary/Summary"
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import LoginSuccess from "./components/LoginSuccess/LoginSuccess";
+import TestPage from "./pages/TestPage";
 
 
 function App() {
   const URL = "http://localhost:4000/menu";
   return (
     <div className="App">
-      <Header />
+
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/settings" element={<Settings/>} />
@@ -33,8 +34,9 @@ function App() {
           <Route exact path="/favorites" element={<Favorites />} />
           <Route exact path="/summary" element={<Summary />} />
           <Route exact path="/auth/login-success/:token" element={<LoginSuccess />} />
+          <Route path='/test' element={<TestPage />} />
         </Routes>
-      <Footer />
+
     </div>
   );
 }

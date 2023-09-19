@@ -15,7 +15,7 @@ h2 {
     font-size: 4vmin;
 }
 
-.search-container {
+/* .search-container {
     margin-top: 1vw;
     float: middle;
     width: 100%;
@@ -32,7 +32,7 @@ h2 {
 .search-container>div {
     display: inline-block;
     vertical-align: middle;
-}
+} */
 
 .microphone {
     height: 5vw;
