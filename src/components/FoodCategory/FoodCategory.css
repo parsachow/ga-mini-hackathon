@@ -5,6 +5,9 @@
     height: 100px;
     padding-top: 20px;
 }
+.foodCategory:hover{
+    background-color: #FBBE21;
+}
 .categoryName{
     font-weight: bold;
 }

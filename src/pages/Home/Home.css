@@ -1,5 +1,5 @@
 .home{    
-    top: 0;
+    margin-top: 2vw;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -23,6 +23,20 @@
     width: 100%;
     text-align: center;
 }
+.titleNameTag {
+    width: 95%; 
+    text-align: center; 
+    border-bottom: 1px solid #808080; 
+    line-height: 0.1em;
+    margin-left: 2vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+ } 
+ 
+ .titleNameTag .titleName { 
+     background:#fff; 
+     padding:0 10px; 
+ }
 .menuButton{
     margin:2vw;
     height:3vw;
@@ -64,4 +78,27 @@
     float: right;
     width: 7vw;
     margin-right: 8vw;
+}
+@media only screen and (min-width:812px) {
+    .descriptionLink {
+        display: none !important;
+    }
+
+    .menu-item-card__item__desc {
+        display: block !important;
+    }
+}
+
+@media screen and (max-width: 812px) {
+    .menu-item-card {
+        height: 40px;
+    }
+
+    div.descriptionLink {
+        display: inline-block !important;
+    }
+
+    div.menu-item-card__item__desc--text {
+        display: none !important;
+    }
 }

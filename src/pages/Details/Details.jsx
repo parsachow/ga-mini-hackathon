@@ -41,7 +41,7 @@ export function Details() {
   return (
     item &&
     <div>
-      <div tabIndex={1} aria-label={item.imageDescription} className="item-details__img" style={{ backgroundImage: `url("${item.imageUrl}")` }}>
+      <div tabIndex={1} aria-label={item.imageDescription} className="topImage" style={{ backgroundImage: `url("${item.imageUrl}")` }}>
       </div>
       <div className="item-details__container">
         <div className="item-details__container__upper">
