@@ -1,6 +1,5 @@
 .navbar {
     background-color: #ffffff;
-    height: 80px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -15,6 +14,7 @@
     color: #000;
     z-index: 105;
     position: fixed;
+    top: clamp(5px,5rem,10px);
   }  
   .nav-menu {
     background-color: #ffffff;

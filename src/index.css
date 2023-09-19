@@ -5,8 +5,6 @@ body {
   color: black;
   background-color: white;
   font-family: Helvetica, Arial, sans-serif !important;
-  margin: 0 10px; 
-  padding: 0 10px;
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 }

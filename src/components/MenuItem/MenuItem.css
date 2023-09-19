@@ -173,7 +173,7 @@
 
 }
 
-@media screen and (min-width:500px) {
+@media only screen and (min-width:812px) {
     .descriptionLink {
         display: none !important;
     }
@@ -183,7 +183,7 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 812px) {
     .menu-item-card {
         height: 40px;
     }
