@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import './Menu.css'
 import { Link } from 'react-router-dom';
 import { useSpeechRecognition } from "../../contexts/SpeechRecognitionContext";
+import MenuItem from "../../components/MenuItem/MenuItem";
 
 export function Menu(props) {
     const [appetizers, setAppetizers] = useState([]);
@@ -11,6 +12,7 @@ export function Menu(props) {
     const { hasSRSupport, recognition } = useSpeechRecognition();
     const [transcribing, setTranscribing] = useState(false);
     const [searchText, setSearchText] = useState('');
+    const [menu, setMenu] = useState([]);
 
     useEffect(() => {
         const getMenuData = async () => {
@@ -18,7 +20,8 @@ export function Menu(props) {
                 const response = await fetch(BASE_URL)
 
                 if (response.ok) {
-                    const res = (await response.json())
+                    const res = (await response.json());
+                    setMenu(res);
                     const allAppetizers = res.filter((i) => i.foodCategory === 'appetizer' ? i : null)
                     const allEntrees = res.filter((i) => i.foodCategory === 'entree' ? i : null)
                     const allDesserts = res.filter((i) => i.foodCategory === 'dessert' ? i : null)
@@ -74,10 +77,9 @@ export function Menu(props) {
 
             <div className='search-container'>
                 <div>
-                    <input
-                        type="search"
-                        className='searchbar'
-                        name="searchbar"
+                    <input type="search" 
+                        className='searchbar' 
+                        name="searchbar" 
                         placeholder="Search our menu..."
                         value={searchText}
                         onChange={onChangeSearchText}
@@ -97,7 +99,18 @@ export function Menu(props) {
                     
             </div>
             <h1 className="eachMenu">Menu</h1>
-            <div className="eachMenu">
+            {menu.map(item =>
+                <MenuItem 
+                itemName={item.name} 
+                itemDescription={item.description} 
+                itemPrice={item.price} 
+                itemImgUrl={item.imageUrl}
+                itemImgAlt={item.imageDescription}
+                showFavIcon={true}
+                btnText="Add"
+                />
+            )}
+            {/* <div className="eachMenu">
                 <h2>Appetizers</h2>
                 {appetizers && appetizers.map((meal) => (
                     <Link to={`/menu/${meal._id}`}>
@@ -153,7 +166,7 @@ export function Menu(props) {
                         </div>
                     </Link>
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }

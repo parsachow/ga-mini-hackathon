@@ -1,13 +1,8 @@
 *{
-    font-family: Tahoma, "Trebuchet MS", sans-serif;
+    /* font-family: Tahoma, "Trebuchet MS", sans-serif; */
     text-align: center;     
 }
-body {
-    margin: 0;    
-    color: black;
-    background-color:white;
-       
-  }
+
 .home{
     padding-top: 5vw;
     text-align: center;
