@@ -1,3 +1,32 @@
+*{
+    font-family: Tahoma, "Trebuchet MS", sans-serif;
+    background-color: white;
+}
+
+.signin-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signin {
+   
+    margin-top: 25vmin;
+    background-color: #fbbe21;
+    width: 25vmin;
+    height: 7vmin;
+    color: black;
+    border-radius: 5%;
+}
+
+button:hover{
+    background-color: #C67C4E;
+}
 .loginButton{
-    padding-top: 10vw;
+    
+    background-color: #fbbe21;
+    width: 25vmin;
+    height: 7vmin;
+    color: black;
+    border-radius: 5%;
 }

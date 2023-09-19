@@ -3,6 +3,7 @@ import './Home.css'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
+
 export function Home(){
     const [dealMenu, setDealMenu] = useState([]);
     const BASE_URL = "http://localhost:4000/menu";
@@ -24,6 +25,8 @@ export function Home(){
       }, []);
     
     return(        
+        <>
+        
         <div className='home'>
             <Link to="/menu"><button className="menuButton" type="button">Search our menu</button></Link>
             <div className='deals'>
@@ -43,7 +46,8 @@ export function Home(){
                     ))}
                 </div>                
             </div>
-        </div>        
+        </div>   
+        </>     
     )
 }
 

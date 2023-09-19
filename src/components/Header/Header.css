@@ -1,12 +1,13 @@
-.bi-cart3 {
+.bi-cart {
     float: right;
     height: 9vmin;
     width: 9vmin;
     margin-right: 1vmin;
+    background-color: #FBBE21;
 }
 
 svg:hover {
-    fill: #7ABF49;
+    fill: #C67C4E;
 }
 
 .signIn{
@@ -22,15 +23,25 @@ svg:hover {
     height: 3vw;
 }
 .signIn:hover{
-    background-color:#7ABF49;
+    background-color:#C67C4E;
 }
 .navbar{
-    background:
-radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
-radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px),#CCADD9;
-    height: 9vmin;    
+    background-color: #FBBE21;
+    height: 10vmin;    
     background-size: 20px 20px;
     position: fixed;
     width: 100%;
     top:0;
+}
+
+.user-icon{
+    float: right;
+    background-color: #FBBE21;
+    height: 10vmin;
+    width: 10vmin;
+   
+}
+
+h1 {
+    color: black;
 }
