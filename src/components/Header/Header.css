@@ -10,6 +10,23 @@ svg:hover {
     fill: #C67C4E;
 }
 
+.cart-container{
+    position: relative;
+    float: right;
+}
+
+.cart-badge{
+    position: absolute;
+    bottom: -10px;
+    left: 5px;
+    border: 3px solid #C67C4E;
+    background-color: #fff;
+    color: black;
+    border-radius: 50%;
+    padding:0.5rem 0.75rem;
+    z-index: 1050;
+}
+
 .signIn{
     background-color: black;
     font-size: 2vw;

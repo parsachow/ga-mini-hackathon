@@ -70,6 +70,21 @@ export function Details() {
         </div>
 
       </div>
+      {!!item.extras.length && item.extras.map((item,idx) => {
+        return (
+        <div key={`customize_${idx}`}>
+          <h2 className="titleNameTag"><span className='titleName'>Customize Order</span></h2>
+          <div className="customize-order">
+            <div className="customization">
+              <div className="checkbox-area"><input type="checkbox"  id={`custom_option_${idx}`} /></div>
+              <div className="label-area"><label htmlFor={`custom_option_${idx}`}>{item}</label></div>
+            </div>
+          </div>
+        </div>);
+      })}
+      <div className='add-cart-btn'>
+        <button>Add to Cart</button>
+      </div>
     </div>
 
   );

@@ -17,15 +17,19 @@ import TestPage from "./pages/TestPage";
 
 
 function App() {
-
+  const [cart,setCart] = useState(null)
 
   return (
     <div className="App">
 
       
+<<<<<<< HEAD
       <Header />
+=======
+      <Header cart={cart} />
+>>>>>>> main
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Home setCart={setCart} />} />
           <Route exact path="/settings" element={<Settings/>} />
           <Route exact path="/menu" element={<Menu URL={URL} />} />
           <Route exact path="/signIn" element={<SignIn />} />

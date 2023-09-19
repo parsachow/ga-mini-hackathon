@@ -1,14 +1,17 @@
 import './Home.css'
 import React, { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MenuItem from "../../components/MenuItem/MenuItem";
 import SearchBar from '../../components/SearchBar/SearchBar';
 import FoodCategory from '../../components/FoodCategory/FoodCategory';
+import { getUser } from '../../utilities/user-service';
+import { addItemToCart } from '../../utilities/orders-api';
 import Deals from '../../components/Deals/Deals';
 
-export function Home(){
+export function Home({setCart}){
     const [menu, setMenu] = useState([]);
     const [filteredMenu,setFilteredMenu] = useState([]);
+    const navigate = useNavigate();
     const BASE_URL = "http://localhost:4000/menu";
 
     useEffect(() => {
@@ -41,6 +44,12 @@ export function Home(){
         }
     }
 
+    const handleAddToCart = async itemId =>{
+        if(!getUser()) return navigate('/signin');
+        const cart = await addItemToCart(itemId);
+        setCart(cart);
+    }
+
     return(  
         <div className='home'> 
             <img alt="delicious spaghetti with tomatoe sauce" className="topImage" src="https://i.imgur.com/i3LZenx.jpg"></img> 
@@ -62,6 +71,7 @@ export function Home(){
                     btnText="Add"
                     key={item._id}
                     itemId={item._id}
+                    onClick={handleAddToCart}
                 />
             )}
             <h2 className="titleNameTag"><span className='titleName'>Today's Special</span></h2>
