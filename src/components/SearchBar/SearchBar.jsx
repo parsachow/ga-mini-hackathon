@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './SearchBar.css';
 import Transcription from '../Transcription/Transcription';
 
 export default function SearchBar({ placeholder, onChange, tabindex }) {
     const [searchText, setSearchText] = useState('');
 
+    useEffect(()=>{
+        if(onChange) onChange(searchText);
+    },[searchText]);
+
     const onChangeST = evt => {
         setSearchText(evt.target.value);
-        if (onChange) onChange(searchText);
     }
 
     return (
