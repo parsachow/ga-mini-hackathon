@@ -76,7 +76,12 @@
   }
   .nav-btn {
     background-color: #FBBE21;
+    border: none;
     color: #000;
     font-size:larger;
-    width: 10vw;
+    width: 9vw;
+    margin: 0.5vw;
+  }
+  .nav-btn:hover{
+    background-color: #C67C4E;
   }
