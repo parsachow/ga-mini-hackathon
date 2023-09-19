@@ -80,5 +80,6 @@
   .nav-btn {
     background-color: #FBBE21;
     color: #000;
-    font-size:larger ;
+    font-size:larger;
+    width: 10vw;
   }
