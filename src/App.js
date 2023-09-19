@@ -23,7 +23,11 @@ function App() {
     <div className="App">
 
       
+<<<<<<< HEAD
+      <Header />
+=======
       <Header cart={cart} />
+>>>>>>> main
         <Routes>
           <Route exact path="/" element={<Home setCart={setCart} />} />
           <Route exact path="/settings" element={<Settings/>} />
@@ -34,8 +38,7 @@ function App() {
           <Route exact path="/menu/:id" element={<Details />} />
           <Route exact path="/favorites" element={<Favorites />} />
           <Route exact path="/summary" element={<Summary />} />
-          <Route exact path="/auth/login-success/:token" element={<LoginSuccess />} />
-          
+          <Route exact path="/auth/login-success/:token" element={<LoginSuccess />} />          
         </Routes>
 
     </div>

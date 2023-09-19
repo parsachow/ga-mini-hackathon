@@ -1,0 +1,47 @@
+.dealsComponent{
+    width: 50%;
+    text-align: center;
+    padding-left: 2.5vw;
+    display: flex;
+    flex-direction: column;
+}
+.dealsDisplay{
+    border: 1px solid #D1D1D1;
+    border-radius: 1vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 11vw;  
+    text-align: center;  
+}
+.dealsImage{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 1vw;
+    margin: 1vw;
+}
+.dealAddCartDiv{
+    background-color: #FBBE21;
+    margin: 1vw;
+    height: 2vw;
+    width: 13vw;    
+    /* text-align: center; */
+    border-radius: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    align-self: center;
+    vertical-align: middle;
+    font-size: larger;
+    font-weight: bolder;
+    color:black;
+}
+.dealAddCart{
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bold;
+    color:black;
+}
