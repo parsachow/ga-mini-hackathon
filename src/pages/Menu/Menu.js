@@ -77,10 +77,9 @@ export function Menu(props) {
 
             <div className='search-container'>
                 <div>
-                    <input
-                        type="search"
-                        className='searchbar'
-                        name="searchbar"
+                    <input type="search" 
+                        className='searchbar' 
+                        name="searchbar" 
                         placeholder="Search our menu..."
                         value={searchText}
                         onChange={onChangeSearchText}
