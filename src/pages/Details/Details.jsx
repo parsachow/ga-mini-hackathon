@@ -70,6 +70,13 @@ export function Details() {
         </div>
 
       </div>
+      <h2 className="titleNameTag"><span className='titleName'>Customize Order</span></h2>
+      <div className="customize-order">
+        arrays
+      </div>
+      <div className='add-cart-btn'>
+        <button>Add to Cart</button>
+      </div>
     </div>
 
   );
