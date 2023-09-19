@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import MenuItem from "../../components/MenuItem/MenuItem";
 import SearchBar from '../../components/SearchBar/SearchBar';
-
+import FoodCategory from '../../components/FoodCategory/FoodCategory';
 
 export function Home(){
     const [menu, setMenu] = useState([]);
@@ -44,6 +44,11 @@ export function Home(){
         <div className='home'> 
             <img alt="delicious spaghetti with tomatoe sauce" className="topImage" src="https://i.imgur.com/i3LZenx.jpg"></img> 
             <div className='filterbar'><SearchBar onChange={search} placeholder="search our menu" /></div>
+            <div className='categoryButtons'>
+                <FoodCategory foodCategory={"Appetizer"}/>
+                <FoodCategory foodCategory={"Entree"}/>
+                <FoodCategory foodCategory={"Dessert"}/>
+            </div>
             {filteredMenu.map(item =>
                 <MenuItem 
                     itemName={item.name} 

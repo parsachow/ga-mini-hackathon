@@ -1,0 +1,27 @@
+.foodCategory{
+    border: 3px solid #FBBE21;
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+    padding-top: 20px;
+}
+.categoryName{
+    font-weight: bold;
+}
+
+@media only screen and (min-width:812px) {
+    .foodCategory{
+        width: 150px;
+        height: 100px;
+        padding-top: 30px;
+    } 
+    
+}
+
+@media screen and (max-width: 812px) {
+    .foodCategory{
+        width: 100px;
+        height: 80px;
+        padding-top: 20px;
+    } 
+}
