@@ -1,6 +1,6 @@
 import './Home.css'
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import MenuItem from "../../components/MenuItem/MenuItem";
 import SearchBar from '../../components/SearchBar/SearchBar';
 import FoodCategory from '../../components/FoodCategory/FoodCategory';

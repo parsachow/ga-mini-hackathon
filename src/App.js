@@ -3,7 +3,6 @@ import {Home} from "./pages/Home/Home"
 import {Settings} from "./pages/Settings/Settings"
 import {Menu} from "./pages/Menu/Menu"
 import {SignIn} from "./pages/SignIn/SignIn"
-import Navbar from "./components/SidebarNav/SidebarNav";
 import {Cart} from "./pages/Cart/Cart"
 import {Checkout} from "./pages/Checkout/Checkout"
 import {Details} from "./pages/Details/Details"
@@ -25,7 +24,7 @@ function App() {
 
       
       <Header />
-      <Navbar />
+      
 
         <Routes>
           <Route exact path="/" element={<Home />} />
