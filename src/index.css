@@ -21,3 +21,11 @@ code {
 .font-dyslexic {
   font-family: 'Open-Dyslexic', sans-serif;
 }
+
+.d-flex{
+  display: flex;
+}
+
+.flex-ctr{
+  justify-content: center;
+}
