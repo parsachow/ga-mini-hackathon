@@ -1,14 +1,14 @@
 import './MenuItem.css';
 import { Link } from 'react-router-dom';
 
-export default function MenuItem({ showFavIcon, favIconToggled, itemImgUrl, itemImgAlt, itemName, itemDescription, itemPrice, btnText, btnImg, onClick, itemId, tabindex }) {
+export default function MenuItem({ showFavIcon, favIconToggled, itemImgUrl, itemImgAlt, itemName, itemDescription, itemPrice, btnText, btnImg, onClick, itemId, tabindex, onToggleFavItem }) {
     return (
         <div className="menu-item-card">
             <div className="imageAndHeart">
                 <img src={itemImgUrl} alt={itemImgAlt} className="menu-item-card__img" />
                 {
                     showFavIcon &&
-                    <div aria-label='add item to favorites' tabIndex={tabindex || 1} className="menu-item-card__fav-icon">
+                    <div aria-label='add item to favorites' tabIndex={tabindex || 1} className={`menu-item-card__fav-icon${favIconToggled ? "--toggled" : ""}`} onClick={() => onToggleFavItem(itemId)}>
 
                     </div>
                 }
@@ -27,7 +27,7 @@ export default function MenuItem({ showFavIcon, favIconToggled, itemImgUrl, item
             <div className="menu-item-card__price">
                 <span tabIndex={tabindex || 1} className="menu-item-card__price--text">${itemPrice.toFixed(2)}</span>
             </div>
-            <div className="menu-item-card__btn" onClick={()=>onClick(itemId)}>
+            <div className="menu-item-card__btn" onClick={() => onClick(itemId)}>
 
                 {btnImg ?
                     <>
