@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Counter.css';
 
-export default function Counter({onChange}){
+export default function Counter({onChange, tabindex}){
     const [num,setNum] = useState(1);
     useEffect(()=>{
         if(onChange) onChange(num);
@@ -17,9 +17,9 @@ export default function Counter({onChange}){
 
     return (
         <div className="counter">
-            <div onClick={decrease} className="counter--minus"><h2>-</h2></div>
-            <div className="counter--number">{num}</div>
-            <div onClick={increase} className="counter--plus"><h2>+</h2></div>
+            <div tabIndex={tabindex || 1} aria-label='decrease quantity' onClick={decrease} className="counter--minus"><h2>-</h2></div>
+            <div tabIndex={tabindex || 1} aria-label='order quantity' className="counter--number">{num}</div>
+            <div tabIndex={tabindex || 1} aria-label='increase quantity' onClick={increase} className="counter--plus"><h2>+</h2></div>
         </div>
     );
 }
