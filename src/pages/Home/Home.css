@@ -1,14 +1,12 @@
-*{
-    /* font-family: Tahoma, "Trebuchet MS", sans-serif; */
-    text-align: center;     
-}
-
 .home{
     padding-top: 5vw;
     text-align: center;
     align-items: center;
     justify-content: center;
     padding-bottom: 5vw;
+}
+.topImage{
+    height: 10vw;
 }
 .menuButton{
     margin:2vw;

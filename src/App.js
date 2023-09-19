@@ -20,7 +20,7 @@ function App() {
   const URL = "http://localhost:4000/menu";
   return (
     <div className="App">
-
+        <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/settings" element={<Settings/>} />
