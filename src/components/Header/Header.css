@@ -23,8 +23,8 @@ svg:hover {
     background-color: #fff;
     color: black;
     border-radius: 50%;
-    padding:0.5rem 0.75rem;
-    z-index: 1050;
+    padding:0.25rem 0.33rem;
+    z-index: 100;
 }
 
 .signIn{
