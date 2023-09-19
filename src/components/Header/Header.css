@@ -6,6 +6,11 @@
     background-color: #FBBE21;
 }
 
+.logout-profile {
+    max-height: 60px;
+    width: 9vmin;
+}
+
 svg:hover {
     fill: #C67C4E;
 }
