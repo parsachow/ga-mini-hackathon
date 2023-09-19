@@ -27,7 +27,7 @@ export default function MenuItem({ showFavIcon, favIconToggled, itemImgUrl, item
             <div className="menu-item-card__price">
                 <span tabIndex={tabindex || 1} className="menu-item-card__price--text">${itemPrice.toFixed(2)}</span>
             </div>
-            <div className="menu-item-card__btn" onClick={onClick}>
+            <div className="menu-item-card__btn" onClick={()=>onClick(itemId)}>
 
                 {btnImg ?
                     <>
