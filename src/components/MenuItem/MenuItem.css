@@ -98,7 +98,7 @@
 
 .menu-item-card__fav-icon {
     position: absolute;
-    z-index: 100;
+    z-index: 10;
     top: 0;
     right: -22px;
     width: 44px;
