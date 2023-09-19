@@ -28,7 +28,7 @@
     text-align: center; 
     border-bottom: 1px solid #808080; 
     line-height: 0.1em;
-    margin-left: 2vw;
+    margin-left: 2.5vw;
     margin-top: 2vw;
     margin-bottom: 2vw;
  } 
@@ -78,6 +78,13 @@
     float: right;
     width: 7vw;
     margin-right: 8vw;
+}
+.dealAtHome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
 }
 @media only screen and (min-width:812px) {
     .descriptionLink {
