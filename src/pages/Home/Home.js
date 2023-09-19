@@ -27,7 +27,8 @@ export function Home(){
     
 
     return(  
-        <div className='home'>    
+        <div className='home'> 
+            <img className="topImage" src="https://images.unsplash.com/photo-1516100882582-96c3a05fe590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"></img>   
             {menu.map(item =>
                 <MenuItem 
                     itemName={item.name} 
