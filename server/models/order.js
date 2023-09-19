@@ -68,21 +68,21 @@ orderSchema.statics.getCart = function (userId) {
 }
 
 // instance method to add items to the cart
-orderSchema.methods.addItemToCart = async function (menuItemId) {
+orderSchema.methods.addItemToCart = async function (menuItemId, qty=1) {
     const cart = this; // order document
 
     // Check if the item already exists in the cart
     const orderItem = cart.orderItems.find(orderItem => orderItem.menuItem._id.equals(menuItemId));
     if (orderItem) {
         // It already exists, so increase the qty
-        orderItem.quantity += 1;
+        orderItem.quantity += qty;
     } else {
         // Get the item from the "catalog"
         // Note how the mongoose.model method behaves as a getter when passed one arg vs. two
         const Item = mongoose.model('MenuItem');
         const OrderItem = mongoose.model('OrderItem',orderItemSchema);
         const menuItem = await Item.findById(menuItemId);
-        const item = new OrderItem({menuItem});
+        const item = new OrderItem({menuItem, quantity:qty });
         cart.orderItems.push(item);
     }
     return cart.save();

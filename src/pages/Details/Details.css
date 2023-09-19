@@ -1,4 +1,47 @@
-.mealDetail{
+.item-details__img {
+    width: 100%;
+    height: 180px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: lightgrey;
+}
+
+.item-details__container {
+    margin-top: 30px;
+    padding: 0 16px;
+    
+}
+
+.item-details__container__upper {
+    text-align: left;
+}
+
+.item-details__container__upper--name {
+    color: #000;
+    text-align: left;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    margin-bottom: 11px;
+}
+
+.item-details__container__upper--description--header {
+    color: #2F2D2C;
+    font-family: Helvetica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: left;
+    margin-top: 11px;
+}
+
+
+
+/* .mealDetail{
     text-align: center;
     margin-top: 5vw;
     display: block;
@@ -39,4 +82,4 @@
 }
 .mealDescription{
     text-align: center;
-}
+} */
