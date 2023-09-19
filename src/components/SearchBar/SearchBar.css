@@ -13,6 +13,7 @@
     background: #313131;
     color: #fff;
     padding-left: 35px;
+    font-size: 14px;
 }
 
 .searchbar::selection{
