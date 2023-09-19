@@ -7,7 +7,7 @@ import FoodCategory from '../../components/FoodCategory/FoodCategory';
 import { getUser } from '../../utilities/user-service';
 import { addItemToCart } from '../../utilities/orders-api';
 
-export function Home(){
+export function Home({setCart}){
     const [menu, setMenu] = useState([]);
     const [filteredMenu,setFilteredMenu] = useState([]);
     const navigate = useNavigate();
@@ -46,6 +46,7 @@ export function Home(){
     const handleAddToCart = async itemId =>{
         if(!getUser()) return navigate('/signin');
         const cart = await addItemToCart(itemId);
+        setCart(cart);
     }
 
     return(  
