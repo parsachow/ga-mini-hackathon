@@ -96,7 +96,7 @@ export function Menu(props) {
                     </svg>
                     } </button>
                 </div>}
-
+                    
             </div>
             <h1 className="eachMenu">Menu</h1>
             {menu.map(item =>

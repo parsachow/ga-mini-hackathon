@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import './SignIn.css'
 export function SignIn(props) {
 
@@ -13,8 +13,10 @@ export function SignIn(props) {
     }
 
     return (
-        <>
-            <div className="loginButton"><Link to="#!" onClick={handleGoogleLogin} >Login with google</Link></div>
-        </>
+        <div class='signin-layout'>
+            <div ><button className='signin' >Sign in</button></div>
+            <br />
+            <div ><button className="loginButton" onClick={handleGoogleLogin} >Login with google</button></div>
+        </div>
     );
 }

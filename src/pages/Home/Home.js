@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import MenuItem from "../../components/MenuItem/MenuItem";
 
+
 export function Home(){
     const [menu, setMenu] = useState([]);
     const BASE_URL = "http://localhost:4000/menu";
@@ -24,6 +25,7 @@ export function Home(){
         fetchData();
       }, []);
     
+
     return(  
         <div className='home'>    
             {menu.map(item =>
@@ -58,6 +60,7 @@ export function Home(){
         //         </div>                
         //     </div>
         // </div>        
+
     )
 }
 
