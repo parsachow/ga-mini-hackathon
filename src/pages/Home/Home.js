@@ -1,4 +1,3 @@
-import 'semantic-ui-css/semantic.min.css'
 import './Home.css'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
@@ -8,6 +7,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 
 export function Home(){
     const [menu, setMenu] = useState([]);
+    const [filteredMenu,setFilteredMenu] = useState([]);
     const BASE_URL = "http://localhost:4000/menu";
 
     useEffect(() => {
@@ -17,7 +17,8 @@ export function Home(){
             if(response.ok){
                 // const deals = (await response.json()).filter((i) => (i.discount)? i : null)
                 const meals = await response.json()
-                setMenu(meals)
+                setMenu(meals);
+                setFilteredMenu(meals);
             }
           }catch(err){
               console.log(err)
@@ -26,12 +27,24 @@ export function Home(){
         fetchData();
       }, []);
     
+      const search = text => {
+        if (text) {
+            const searchTerms = text.toLowerCase().trim().split(" ").filter(el => el);
+            setFilteredMenu(menu.filter(item =>
+                searchTerms.every(term =>
+                    item.name.toLowerCase().includes(term) || item.description.toLowerCase().includes(term)
+                )
+            ));
+        }else{
+            setFilteredMenu(menu);
+        }
+    }
 
     return(  
         <div className='home'> 
-            <img className="topImage" src="https://i.imgur.com/i3LZenx.jpg"></img> 
-            <div className='filterbar'><SearchBar /></div>
-            {menu.map(item =>
+            <img alt="delicious spaghetti with tomatoe sauce" className="topImage" src="https://i.imgur.com/i3LZenx.jpg"></img> 
+            <div className='filterbar'><SearchBar onChange={search} placeholder="search our menu" /></div>
+            {filteredMenu.map(item =>
                 <MenuItem 
                     itemName={item.name} 
                     itemDescription={item.description} 
@@ -40,6 +53,8 @@ export function Home(){
                     itemImgAlt={item.imageDescription}
                     showFavIcon={true}
                     btnText="Add"
+                    key={item._id}
+                    itemId={item._id}
                 />
             )}
         </div>  
