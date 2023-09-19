@@ -10,6 +10,11 @@
     width: 100%;
     top: 0;
 }
+.filterbar{
+    display: flex;
+    width:100%;    
+    justify-content: center;    
+}
 .menuButton{
     margin:2vw;
     height:3vw;
