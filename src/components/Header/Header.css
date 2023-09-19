@@ -37,6 +37,7 @@ svg:hover {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    
 }
 
 .user-icon{
@@ -51,6 +52,16 @@ svg:hover {
     font-size: xx-large;
     color: black;
     display: inline-block;
-    padding-left: 15vmin;
-    padding-top: 3vmin;
+    text-align: center;
+    text-decoration: none;
+    
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  
+   
 }
