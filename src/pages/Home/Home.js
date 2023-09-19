@@ -49,6 +49,7 @@ export function Home(){
                 <FoodCategory foodCategory={"Entree"}/>
                 <FoodCategory foodCategory={"Dessert"}/>
             </div>
+            <h2 className="titleNameTag"><span className='titleName'>Order Again</span></h2>
             {filteredMenu.map(item =>
                 <MenuItem 
                     itemName={item.name} 
