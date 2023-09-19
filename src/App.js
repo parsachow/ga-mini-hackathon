@@ -13,6 +13,7 @@ import {React, useState} from 'react'
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import LoginSuccess from "./components/LoginSuccess/LoginSuccess";
+import TestPage from "./pages/TestPage";
 
 
 
@@ -37,7 +38,8 @@ function App() {
           <Route exact path="/favorites" element={<Favorites />} />
           <Route exact path="/summary" element={<Summary />} />
           <Route exact path="/auth/login-success/:token" element={<LoginSuccess />} />
-          <Route path='/test' element={<TestPage />} />
+          <Route exact path="/test" element={<TestPage />} />
+
         </Routes>
 
     </div>

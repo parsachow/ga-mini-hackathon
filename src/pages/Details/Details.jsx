@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { getMeal } from '../../utilities/meal-service'
-import './Details.css'
-import sendRequest from "../../utilities/send-request";
+import './Details.css';
 import { addItemToCart } from "../../utilities/orders-api";
+import Counter from "../../components/Counter/Counter";
 
 export function Details() {
   const [item, setItem] = useState(null);
+  const [qty, setQty] = useState(1);
   const { id } = useParams();
 
   // fetch menuItem && profile
@@ -23,6 +23,11 @@ export function Details() {
     }
     fetchData();
   }, [id]);
+
+  const handleQtyChange = qty =>{
+    setQty(qty);
+  }
+
   return (
     item &&
     <div>
@@ -32,11 +37,14 @@ export function Details() {
         <div className="item-details__container__upper">
           <div className="item-details__container__upper--name">{item.name}</div>
           <div className="item-details__container__upper--description">
-            <span className="item-details__container__upper--description--header">Description</span>
-            <span className="item-details__container__upper--description--text"></span>
+            <div className="item-details__container__upper--description--header">Description</div>
+            <div className="item-details__container__upper--description--text">{item.description}</div>
           </div>
           <div className="item-details__container__upper--order-details">
-            <div className="item-details__container__upper--order-details--subtotal"></div>
+            <div className="item-details__container__upper--order-details--subtotal">
+              <Counter onChange={handleQtyChange} />
+              <div className="item-details__container__upper--order-details--subtotal--price">${item.price}</div>
+            </div>
             <div className="item-details__container__upper--order-details--notes"></div>
           </div>
         </div>

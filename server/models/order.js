@@ -9,7 +9,7 @@ const orderItemSchema = new mongoose.Schema(
             type: Number,
             required: true,
             default: 1,
-        }
+        },
     },
     {
         timestamps: true,
@@ -36,7 +36,8 @@ const orderSchema = new mongoose.Schema(
         ],
         userId: {
             type: mongoose.Schema.Types.ObjectId
-        }
+        },
+        notes: String
     },
     {
         timestamps: true,
