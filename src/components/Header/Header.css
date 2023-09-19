@@ -32,8 +32,8 @@ svg:hover {
     font-size: 2vw;
     color:white;
     float: right;
-    margin-right: 10vmin;
-    margin-top: 1.5vmin;
+    /* margin-right: 10vmin; */
+    /* margin-top: 1.5vmin; */
     border: none;
     border-radius: 1vw;
     width: 10vw;
@@ -54,7 +54,7 @@ svg:hover {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    
+    justify-content: space-between;
 }
 
 .user-icon{
@@ -68,17 +68,15 @@ svg:hover {
 .app-title {
     font-size: xx-large;
     color: black;
-    display: inline-block;
-    text-align: center;
+    /* display: inline-block;
+    text-align: center; */
     text-decoration: none;
     
 }
 
-.title {
+/* .title {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-  
-   
-}
+    justify-content: center;   
+} */
