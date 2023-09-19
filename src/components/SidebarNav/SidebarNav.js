@@ -34,8 +34,7 @@ function Navbar() {
               <br />
               <Link to="/settings"><button className='nav-btn'>Account Setting</button> </Link>
               <br />
-              <Link to="/"><button className='nav-btn'>Call Us</button> </Link>
-              
+              <Link to="/"><button className='nav-btn'>Call Us</button></Link>              
             </ul>
           </nav>
         </IconContext.Provider>

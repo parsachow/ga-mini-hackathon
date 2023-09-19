@@ -1,20 +1,19 @@
-
-body {
-    margin: 0;    
-    color: black;
-    background-color:white;
-       
-  }
-
-.home{
-    padding-top: 5vw;
+.home{    
+    top: 0;
     text-align: center;
     align-items: center;
     justify-content: center;
     padding-bottom: 5vw;
 }
 .topImage{
-    height: 10vw;
+    height: 40vw;
+    width: 100%;
+    top: 0;
+}
+.filterbar{
+    display: flex;
+    width:100%;    
+    justify-content: center;    
 }
 .menuButton{
     margin:2vw;
