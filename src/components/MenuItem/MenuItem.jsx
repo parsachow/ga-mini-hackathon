@@ -23,7 +23,7 @@ export default function MenuItem({ showFavIcon, favIconToggled, itemImgUrl, item
                 <Link to={`/menu/${itemId}`} className='descriptionLink'>Description</Link>
             </div>
             <div className="menu-item-card__price">
-                <div className="menu-item-card__price--text">${itemPrice.toFixed(2)}</div>
+                <h3 className="menu-item-card__price--text">${itemPrice.toFixed(2)}</h3>
             </div>
             <div className="menu-item-card__btn" onClick={onClick}>
                 
