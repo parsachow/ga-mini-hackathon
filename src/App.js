@@ -23,11 +23,7 @@ function App() {
     <div className="App">
 
       
-<<<<<<< HEAD
-      <Header />
-=======
       <Header cart={cart} />
->>>>>>> main
         <Routes>
           <Route exact path="/" element={<Home setCart={setCart} />} />
           <Route exact path="/settings" element={<Settings/>} />
