@@ -42,6 +42,10 @@ svg:hover {
    
 }
 
-h1 {
+.app-title {
+    font-size: xx-large;
     color: black;
+    display: inline-block;
+    padding-left: 15vmin;
+    padding-top: 3vmin;
 }

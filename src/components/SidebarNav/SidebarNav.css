@@ -10,7 +10,7 @@
     margin-left: 2rem;
     margin-bottom: 2rem;
     font-size: 2rem;
-    background-color: #FBBE21;
+    background-color: transparent;
     color: #000;
     z-index: 5;
   }
@@ -27,6 +27,7 @@
     top: 0;
     left: -100%;
     transition: 850ms;
+    z-index: 10;
   }
   
   .nav-menu.active {

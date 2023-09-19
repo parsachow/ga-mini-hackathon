@@ -37,7 +37,7 @@ function App() {
           <Route exact path="/favorites" element={<Favorites />} />
           <Route exact path="/summary" element={<Summary />} />
           <Route exact path="/auth/login-success/:token" element={<LoginSuccess />} />
-          <Route path='/test' element={<TestPage />} />
+          
         </Routes>
 
     </div>
