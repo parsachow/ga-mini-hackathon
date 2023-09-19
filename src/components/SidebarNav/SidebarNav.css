@@ -71,12 +71,9 @@
     justify-content: flex-end;
     align-items: center;
   }
-  
-
   span {
     margin-left: 16px;
   }
-
   .nav-btn {
     background-color: #FBBE21;
     color: #000;
