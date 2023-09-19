@@ -63,6 +63,7 @@ export function Home(){
                     itemId={item._id}
                 />
             )}
+            <h2 className="titleNameTag"><span className='titleName'>Today's Special</span></h2>
         </div>  
         // <div className='home'>
         //     <Link to="/menu"><button className="menuButton" type="button">Search our menu</button></Link>
