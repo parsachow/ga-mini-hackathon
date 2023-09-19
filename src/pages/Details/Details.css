@@ -58,7 +58,7 @@
     margin-right: 5vmin;
     padding-top: 11px;
     margin-bottom: 11px;
-    
+
 }
 
 .item-details__container__upper--order-details {
@@ -83,7 +83,7 @@
     line-height: 20px;
     /* 83.333% */
     letter-spacing: -0.5px;
-    
+
 }
 
 .item-details__container__upper--order-details--notes {
@@ -91,6 +91,7 @@
     margin-top: 22px;
     justify-content: center;
     align-items: center;
+    margin-bottom: 25px;
 }
 
 .item-details__container__upper--order-details--notes input {
@@ -118,7 +119,7 @@ button {
     font-size: xx-large;
     border-radius: 15px;
     padding: 10px;
-    
+
 }
 
 .add-cart-btn {
@@ -126,4 +127,35 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.customization {
+    display: flex;
+}
+
+.customize-order{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.checkbox-area {
+    border-radius: 50%;
+    background-color: #edf0ef;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-area {
+    color: #2F2D2C;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
 }
