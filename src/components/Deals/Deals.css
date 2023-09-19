@@ -1,5 +1,5 @@
 .dealsComponent {
-    width: 50%;
+    
     text-align: center;
     padding-left: 2.5vw;
     display: flex;
@@ -48,4 +48,53 @@
     font-size: larger;
     font-weight: bold;
     color: black;
+}
+
+@media only screen and (min-width:812px) {
+    .dealsComponent {
+        width: 50%;
+        /* text-align: center;
+        padding-left: 2.5vw;
+        display: flex;
+        flex-direction: column; */
+    }
+    .dealsDisplay{
+        width: 50%;
+    }
+    .dealAddCartDiv {
+        /* background-color: #FBBE21;
+        margin: 1vw;
+        height: 2vw;
+        width: 13vw;
+        /* text-align: center; */
+        /* border-radius: 0.5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        align-self: center;
+        vertical-align: middle; */ 
+        font-size: larger;
+        font-weight: bolder;
+        /* color: black; */
+    }
+    
+}
+
+@media screen and (max-width: 812px) {
+    .dealsComponent {
+        width: 100%;
+        /* text-align: center;
+        padding-left: 2.5vw;
+        display: flex;
+        flex-direction: column; */
+    }
+    .dealsDisplay{
+        width: 100%;
+    }
+    .dealAddCartDiv{
+        font-size: small;
+        font-weight: bolder;
+    }
 }
