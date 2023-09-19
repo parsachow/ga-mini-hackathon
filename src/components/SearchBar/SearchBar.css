@@ -18,6 +18,7 @@
 
 .searchbar::selection{
     color: #e8e2e2;
+    background-color: slategray;
 }
 
 .searchbar-icon{
