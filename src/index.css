@@ -1,12 +1,9 @@
 @import url('https://fonts.cdnfonts.com/css/open-dyslexic');
 
 body {
-  margin: 0;
-
-  font-family: Tahoma, "Trebuchet MS", sans-serif;
+  margin: 0;  
   color: black;
   background-color: white;
-
   font-family: Helvetica, Arial, sans-serif;
   margin: 0 10px; 
   padding: 0 10px;
@@ -15,7 +12,7 @@ body {
 }
 
 code {
-  font-family: Tahoma, "Trebuchet MS", sans-serif;
+  font-family: Helvetica, Arial, sans-serif;;
 }
 
 .font-dyslexic {
