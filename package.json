@@ -1,5 +1,5 @@
 {
-  "proxy":"http://localhost:4000",
+  "proxy": "http://localhost:4000",
   "name": "src",
   "version": "0.1.0",
   "private": true,
@@ -21,6 +21,7 @@
     "react": "^18.2.0",
     "react-document-meta": "^3.0.0-beta.2",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
     "react-router": "^6.16.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
@@ -54,13 +55,12 @@
       "last 1 safari version"
     ]
   },
-
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
     "@shelf/jest-mongodb": "^4.1.7",
     "concurrently": "^8.2.1",
     "jest": "^27.5.1",
     "mongodb-memory-server": "^8.15.1",
-    "supertest": "^6.3.3",
-    "@babel/plugin-proposal-private-property-in-object": "7.21.11"
+    "supertest": "^6.3.3"
   }
 }
