@@ -16,6 +16,13 @@
     justify-content: center;    
     margin-bottom: 20px;
 }
+.categoryButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    text-align: center;
+}
 .menuButton{
     margin:2vw;
     height:3vw;
