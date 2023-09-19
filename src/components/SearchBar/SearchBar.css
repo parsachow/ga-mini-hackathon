@@ -12,9 +12,16 @@
     border-radius: 16px;
     background: #313131;
     color: #fff;
+    padding-left: 35px;
+    font-size: 14px;
+}
+
+.searchbar::selection{
+    color: #e8e2e2;
 }
 
 .searchbar-icon{
+    background-color: #313131;
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIiBmaWxsPSJub25lIj4KPHBhdGggZD0iTTkuNTgzMTcgMTcuNDk3NEMxMy45NTU0IDE3LjQ5NzQgMTcuNDk5OCAxMy45NTMgMTcuNDk5OCA5LjU4MDczQzE3LjQ5OTggNS4yMDg0NyAxMy45NTU0IDEuNjY0MDYgOS41ODMxNyAxLjY2NDA2QzUuMjEwOTIgMS42NjQwNiAxLjY2NjUgNS4yMDg0NyAxLjY2NjUgOS41ODA3M0MxLjY2NjUgMTMuOTUzIDUuMjEwOTIgMTcuNDk3NCA5LjU4MzE3IDE3LjQ5NzRaIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xOC4zMzMyIDE4LjMzMDdMMTYuNjY2NSAxNi42NjQxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg==");
     position: absolute;
     top: calc(50% - 10px);
