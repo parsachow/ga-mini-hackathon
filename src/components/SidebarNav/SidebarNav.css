@@ -5,10 +5,9 @@
     align-items: center;
     z-index: 105;
   }
-  
   .menu-bars {
-    margin-left: 2rem;
-    margin-bottom: 2rem;
+    margin-left: 5px;
+    /* margin-bottom: 2rem; */
     font-size: 2rem;
     background-color: transparent;
     color: #000;
