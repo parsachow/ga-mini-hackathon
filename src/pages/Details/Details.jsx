@@ -34,9 +34,8 @@ export function Details({ setCart }) {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch(`/profile`);
-        const json = await res.json();
-        setFavItems(json.favItems);
+        const res = await sendRequest(`/profile`);
+        setFavItems(res.favItems);
       } catch (error) {
         console.error(error);
       }
