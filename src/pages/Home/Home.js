@@ -75,7 +75,7 @@ export function Home({setCart}){
 
     return(  
         <div className='home'> 
-            <img alt="delicious spaghetti with tomatoe sauce" className="topImage" src="https://i.imgur.com/i3LZenx.jpg"></img> 
+            <img alt="delicious spaghetti with tomatoe sauce" className="topImage" src="https://i.imgur.com/MWgc0PL.jpg"></img> 
             <div className='filterbar'><SearchBar onChange={search} placeholder="search our menu" /></div>
             <div className='categoryButtons'>
                 <FoodCategory foodCategory={"Appetizer"}/>

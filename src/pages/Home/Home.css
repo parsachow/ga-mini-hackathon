@@ -6,9 +6,9 @@
     margin-bottom: 20px;
 }
 .topImage{
-    height: 40vw;
+    height: 100vw;
     width: 100%;
-    top: 0;
+    margin-top: 1vw;
 }
 .filterbar{
     display: flex;
