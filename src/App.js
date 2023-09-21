@@ -29,7 +29,7 @@ function App() {
           <Route exact path="/settings" element={<Settings/>} />
           <Route exact path="/menu" element={<Menu URL={URL} />} />
           <Route exact path="/signIn" element={<SignIn />} />
-          <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/cart" element={<Cart setCartParent={setCart} />} />
           <Route exact path="/checkout" element={<Checkout />} />
           <Route exact path="/menu/:id" element={<Details setCart={setCart} />} />
           <Route exact path="/favorites" element={<Favorites />} />

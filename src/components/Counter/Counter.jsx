@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import './Counter.css';
 
-export default function Counter({onChange, tabindex}){
-    const [num,setNum] = useState(1);
+export default function Counter({onChange, tabindex, initNum}){
+    const [num,setNum] = useState(initNum || 1);
     useEffect(()=>{
         if(onChange) onChange(num);
     },[num]);
