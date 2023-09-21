@@ -72,11 +72,16 @@ svg:hover {
 
 .app-title {
     font-size: xx-large;
+    font-weight: bold;
     color: black;
     /* display: inline-block;
     text-align: center; */
     text-decoration: none;
     
+}
+.hamburgermenu{
+    align-items: center;
+    margin-left: 1vw;
 }
 
 /* .title {
