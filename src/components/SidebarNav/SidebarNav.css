@@ -18,7 +18,7 @@
   .nav-menu {
     background-color: #ffffff;
     width: 250px;
-    height: 45vh;
+    height: 400px;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -79,8 +79,8 @@
     border: none;
     color: #000;
     font-size:larger;
-    width: 200px;
-    margin: 0.5vw;
+    width: 175px;
+    margin: 5px;
   }
   .nav-btn:hover{
     background-color: #C67C4E;
