@@ -1,15 +1,15 @@
 .foodCategory{
     border: 3px solid #FBBE21;
     border-radius: 10px;
-    width: 300px;
-    height: 100px;
-    padding-top: 20px;
 }
 .foodCategory:hover{
     background-color: #FBBE21;
 }
 .categoryName{
     font-weight: bold;
+}
+.entree:hover, .appetizer:hover{
+    fill: none;
 }
 
 @media only screen and (min-width:812px) {

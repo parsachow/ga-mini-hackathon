@@ -1,5 +1,4 @@
 import './FoodCategory.css';
-import { Link } from 'react-router-dom';
 import React from 'react';
 import {ReactComponent as AppetizerLogo} from '../../svg files/Group.svg';
 import {ReactComponent as EntreeLogo} from '../../svg files/food-kitchenware-serving-dome--cook-tool-dome-kitchen-serving-paltter-dish-tools-food.svg';
@@ -13,7 +12,7 @@ export default function FoodCategory({ foodCategory }) {
             <div className='categoryIcon'>
                 {
                     foodCategory && foodCategory.toLowerCase()==="appetizer"?<AppetizerLogo />:
-                    foodCategory.toLowerCase() === "entree"?<EntreeLogo/>:
+                    foodCategory.toLowerCase() === "entree"?<EntreeLogo className='entree'/>:
                     foodCategory.toLowerCase() === "dessert"?<DessertLogo/>: null
                 }
             </div>
