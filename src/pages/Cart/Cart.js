@@ -7,7 +7,7 @@ import { getCart, setItemQtyInCart } from "../../utilities/orders-api"
 
 
 
-export function Cart(props){
+export function Cart({setCartParent}){
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
@@ -16,6 +16,7 @@ export function Cart(props){
                 const cart = await getCart();
                 console.log(cart);
                 setCart(cart);
+                setCartParent(cart);
             } catch (error) {
                 console.error(error);
             }
@@ -26,6 +27,7 @@ export function Cart(props){
     const handleRemoveItem = async (itemId) =>{
         const cart = await setItemQtyInCart(itemId,0);
         setCart(cart);
+        setCartParent(cart);
     }
     return (
         <>
