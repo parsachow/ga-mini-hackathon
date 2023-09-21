@@ -28,7 +28,7 @@
     text-align: center; 
     border-bottom: 1px solid #808080; 
     line-height: 0.1em;
-    margin-left: 2.5vw;
+    margin: clamp(10px, 2vw, 2vw);
     
  } 
  

@@ -27,7 +27,7 @@ export default function Deals(props){
 
         dealMenu.forEach(el => {
             dealNames.push(el.name)
-            sum += el.price
+            sum += el.price - (el.price * el.discount)
         })
 
     return(
