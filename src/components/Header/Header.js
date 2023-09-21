@@ -41,7 +41,7 @@ export function Header({ cart }) {
         <div className="title">
           <Link to='/' className="app-title">Cafe Normalé</Link>
         </div>
-        <div>
+        <div className="hamburgermenu">
           <Navbar />
         </div>
       </nav>
