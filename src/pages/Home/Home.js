@@ -8,6 +8,7 @@ import { getUser } from '../../utilities/user-service';
 import { addItemToCart } from '../../utilities/orders-api';
 import Deals from '../../components/Deals/Deals';
 import sendRequest from '../../utilities/send-request';
+// import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 export function Home({setCart}){
     const [menu, setMenu] = useState([]);
@@ -15,13 +16,13 @@ export function Home({setCart}){
     const [favItems, setFavItems] = useState([]);
     const navigate = useNavigate();
     const BASE_URL = "http://localhost:4000/menu";
+    
 
     useEffect(() => {
         async function fetchData() { 
           try {
             const response = await fetch(BASE_URL)
             if(response.ok){
-                // const deals = (await response.json()).filter((i) => (i.discount)? i : null)
                 const meals = await response.json()
                 setMenu(meals);
                 setFilteredMenu(meals);
@@ -42,13 +43,41 @@ export function Home({setCart}){
         fetchData();
         fetchProfile();
       }, []);
+
+      const appetizerSelector= () =>{
+        console.log("appetizer clicked")
+        if (filteredMenu === []) {
+            setFilteredMenu(filteredMenu.filter(item => item.foodCategory.toLowerCase().includes("appetizer")));
+        }else{
+            setFilteredMenu(menu.filter(item => item.foodCategory.toLowerCase().includes("appetizer")));
+        }
+              
+      }
+      const entreeSelector= () =>{
+        console.log("entree clicked")
+        if (filteredMenu === []) {
+            setFilteredMenu(filteredMenu.filter(item => item.foodCategory.toLowerCase().includes("entree")));
+        }else{
+            setFilteredMenu(menu.filter(item => item.foodCategory.toLowerCase().includes("entree")));
+        }
+               
+      }
+      const dessertSelector=() =>{
+        console.log("dessert clicked")
+        if (filteredMenu === []) {
+            setFilteredMenu(filteredMenu.filter(item => item.foodCategory.toLowerCase().includes("dessert")));
+        }else{
+            setFilteredMenu(menu.filter(item => item.foodCategory.toLowerCase().includes("dessert")));
+        }
+                
+      }
     
       const search = text => {
         if (text) {
             const searchTerms = text.toLowerCase().trim().split(" ").filter(el => el);
             setFilteredMenu(menu.filter(item =>
                 searchTerms.every(term =>
-                    item.name.toLowerCase().includes(term) || item.description.toLowerCase().includes(term)
+                    item.name.toLowerCase().includes(term) || item.description.toLowerCase().includes(term) || item.foodCategory.toLowerCase().includes(term)
                 )
             ));
         }else{
@@ -76,11 +105,11 @@ export function Home({setCart}){
     return(  
         <div className='home'> 
             <img alt="delicious spaghetti with tomatoe sauce" className="topImage" src="https://i.imgur.com/MWgc0PL.jpg"></img> 
-            <div className='filterbar'><SearchBar onChange={search} placeholder="search our menu" /></div>
-            <div className='categoryButtons'>
-                <FoodCategory foodCategory={"Appetizer"}/>
-                <FoodCategory foodCategory={"Entree"}/>
-                <FoodCategory foodCategory={"Dessert"}/>
+            <div className='filterbar'><SearchBar onChange={search} placeholder="enter a word to search our menu" /></div>
+            <div className='categoryButtons' >
+                <div onClick={appetizerSelector}><FoodCategory foodCategory={"Appetizer"} onClick={appetizerSelector}/></div>
+                <div onClick={entreeSelector}><FoodCategory foodCategory={"Entree"} /></div>
+                <div onClick={dessertSelector}><FoodCategory foodCategory={"Dessert"} /></div>
             </div>
             <h2 className="titleNameTag"><span className='titleName'>Order Again</span></h2>
             {filteredMenu.map(item =>
