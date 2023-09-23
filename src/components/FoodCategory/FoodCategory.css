@@ -2,8 +2,11 @@
     border: 3px solid #FBBE21;
     border-radius: 10px;
 }
-.foodCategory:hover{
+.foodCategory:hover, .foodCategory:focus{
     background-color: #FBBE21;
+}
+.foodCategory[disabled]{
+    background-color:white;
 }
 .categoryName{
     font-weight: bold;
