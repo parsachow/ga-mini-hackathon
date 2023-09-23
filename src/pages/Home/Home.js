@@ -16,6 +16,7 @@ export function Home({setCart}){
     const [favItems, setFavItems] = useState([]);
     const navigate = useNavigate();
     const BASE_URL = "http://localhost:4000/menu";
+    const [title, setTitle] = useState("")
     
 
     useEffect(() => {
@@ -26,6 +27,7 @@ export function Home({setCart}){
                 const meals = await response.json()
                 setMenu(meals);
                 setFilteredMenu(meals);
+                setTitle("Menu")
             }
           }catch(err){
               console.log(err)
@@ -45,7 +47,7 @@ export function Home({setCart}){
       }, []);
 
       const appetizerSelector= () =>{
-        console.log("appetizer clicked")
+        setTitle("Appetizers")
         if (filteredMenu === []) {
             setFilteredMenu(filteredMenu.filter(item => item.foodCategory.toLowerCase().includes("appetizer")));
         }else{
@@ -54,7 +56,7 @@ export function Home({setCart}){
               
       }
       const entreeSelector= () =>{
-        console.log("entree clicked")
+        setTitle("Entrees")
         if (filteredMenu === []) {
             setFilteredMenu(filteredMenu.filter(item => item.foodCategory.toLowerCase().includes("entree")));
         }else{
@@ -63,7 +65,7 @@ export function Home({setCart}){
                
       }
       const dessertSelector=() =>{
-        console.log("dessert clicked")
+        setTitle("Desserts")
         if (filteredMenu === []) {
             setFilteredMenu(filteredMenu.filter(item => item.foodCategory.toLowerCase().includes("dessert")));
         }else{
@@ -111,7 +113,7 @@ export function Home({setCart}){
                 <div onClick={entreeSelector}><FoodCategory foodCategory={"Entree"} /></div>
                 <div onClick={dessertSelector}><FoodCategory foodCategory={"Dessert"} /></div>
             </div>
-            <h2 className="titleNameTag"><span className='titleName'>Order Again</span></h2>
+            <h2 className="titleNameTag"><span className='titleName'>{title}</span></h2>
             {filteredMenu.map(item =>
                 <MenuItem 
                     itemName={item.name} 
