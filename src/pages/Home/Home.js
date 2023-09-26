@@ -17,7 +17,7 @@ export function Home({setCart}){
     const navigate = useNavigate();
     const BASE_URL = "http://localhost:4000/menu";
     const [title, setTitle] = useState("")
-    
+    const [searchTerm, setSearchTerm] = useState("")
 
     useEffect(() => {
         async function fetchData() { 
@@ -48,8 +48,13 @@ export function Home({setCart}){
 
       const appetizerSelector= () =>{
         setTitle("Appetizers")
-        if (filteredMenu === []) {
+        if (searchTerm && filteredMenu !== []) {
             setFilteredMenu(filteredMenu.filter(item => item.foodCategory.toLowerCase().includes("appetizer")));
+        }else if(searchTerm && filteredMenu === []){
+            console.log(`${searchTerm} and appetizer`)
+            setFilteredMenu(menu.filter(item => {
+                (item.name.toLowerCase().includes(searchTerm) || item.description.toLowerCase().includes(searchTerm)) && item.foodCategory.toLowerCase().includes("appetizer")
+            }));
         }else{
             setFilteredMenu(menu.filter(item => item.foodCategory.toLowerCase().includes("appetizer")));
         }
@@ -57,8 +62,12 @@ export function Home({setCart}){
       }
       const entreeSelector= () =>{
         setTitle("Entrees")
-        if (filteredMenu === []) {
+        if (searchTerm && filteredMenu !== []) {
             setFilteredMenu(filteredMenu.filter(item => item.foodCategory.toLowerCase().includes("entree")));
+        }else if(searchTerm){
+            setFilteredMenu(menu.filter(item => {
+                (item.name.toLowerCase().includes(searchTerm) || item.description.toLowerCase().includes(searchTerm)) && item.foodCategory.toLowerCase().includes("entree")
+            }));
         }else{
             setFilteredMenu(menu.filter(item => item.foodCategory.toLowerCase().includes("entree")));
         }
@@ -66,8 +75,12 @@ export function Home({setCart}){
       }
       const dessertSelector=() =>{
         setTitle("Desserts")
-        if (filteredMenu === []) {
+        if (searchTerm && filteredMenu) {
             setFilteredMenu(filteredMenu.filter(item => item.foodCategory.toLowerCase().includes("dessert")));
+        }else if(searchTerm){
+            setFilteredMenu(menu.filter(item => {
+                (item.name.toLowerCase().includes(searchTerm) || item.description.toLowerCase().includes(searchTerm)) && item.foodCategory.toLowerCase().includes("dessert")
+            }));
         }else{
             setFilteredMenu(menu.filter(item => item.foodCategory.toLowerCase().includes("dessert")));
         }
@@ -75,15 +88,25 @@ export function Home({setCart}){
       }
     
       const search = text => {
-        if (text) {
+        if (text && filteredMenu !==[]) {
+            const searchTerms = text.toLowerCase().trim().split(" ").filter(el => el);
+            setFilteredMenu(filteredMenu.filter(item =>
+                searchTerms.every(term =>
+                    item.name.toLowerCase().includes(term) || item.description.toLowerCase().includes(term) || item.foodCategory.toLowerCase().includes(term)
+                )
+            ));
+            setSearchTerm(searchTerms)
+        }else if(text && filteredMenu === []){
             const searchTerms = text.toLowerCase().trim().split(" ").filter(el => el);
             setFilteredMenu(menu.filter(item =>
                 searchTerms.every(term =>
                     item.name.toLowerCase().includes(term) || item.description.toLowerCase().includes(term) || item.foodCategory.toLowerCase().includes(term)
                 )
             ));
+            setSearchTerm(searchTerms)
         }else{
             setFilteredMenu(menu);
+            setSearchTerm("")
         }
     }
 

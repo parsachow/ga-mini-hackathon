@@ -33,7 +33,7 @@ export default function Deals(props){
     return(
         <div className='dealsComponent'>
             <div className='dealsDisplay'>
-                {dealMenu && dealMenu.map(i=> <img className='dealsImage' src={i.imageUrl}/>)}
+                {dealMenu && dealMenu.map(i=> <img className='dealsImage' src={i.imageUrl} alt={i.imageDescription}/>)}
                 <h2 className='dealNames'>{dealNames[0]} and {dealNames[1]}</h2>
             </div>
             <div className='dealAddCartDiv'>
