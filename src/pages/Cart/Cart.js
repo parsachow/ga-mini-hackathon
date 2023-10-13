@@ -15,7 +15,6 @@ export function Cart({ setCartParent }) {
         const fetchCart = async () => {
             try {
                 const cart = await getCart();
-                console.log(cart);
                 setCart(cart);
                 setCartParent(cart);
             } catch (error) {
