@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 
 const addressSchema = mongoose.Schema(
     {
-        name: { type: String },
-        street: { type: String, required: true },
-        city: { type: String, required: true },
-        state: { type: String, required: true },
-        zip: { type: String, required: true },
+        address: { type: String, required: true },
         // do we need a userId here if we're embedding this to profile, which already
         // has reference to user?
         userId: {

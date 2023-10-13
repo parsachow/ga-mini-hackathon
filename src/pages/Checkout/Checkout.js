@@ -1,4 +1,10 @@
+import Transcription from "../../components/Transcription/Transcription"
+
 export function Checkout(props){
+
+    function handleSubmit(e){
+
+    }
 
     return (
         <div className="delivery-main-div">
@@ -8,10 +14,19 @@ export function Checkout(props){
             <br />
             <h2>Delivery Details</h2>
 
+            <div className="address-div">
+                <div>
+                    <form onSubmit={handleSubmit}>
+                         <textarea name='postAddress' placeholder="Address" wrap="soft" rows={4} cols={40}/>
+                    </form>
+                </div>
+                <div>
+                    <Transcription />
+                </div> 
+            </div>
+            
             <div>
-                <form>
-                    <textarea name='postAddress' placeholder="Address" wrap="soft" rows={4} cols={40}/>
-                </form>
+                <button type="submit">Pay Now</button>
             </div>
         
 
