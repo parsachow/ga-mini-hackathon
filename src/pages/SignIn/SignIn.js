@@ -14,8 +14,6 @@ export function SignIn(props) {
 
     return (
         <div class='signin-layout'>
-            <div ><button className='signin' >Sign in</button></div>
-            <br />
             <div ><button className="loginButton" onClick={handleGoogleLogin} >Login with google</button></div>
         </div>
     );
