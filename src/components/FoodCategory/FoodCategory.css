@@ -2,8 +2,9 @@
     border: 3px solid #FBBE21;
     border-radius: 10px;
 }
-.foodCategory:hover, .foodCategory:focus{
-    background-color: #FBBE21;
+.foodCategory:hover{
+    background-color: #f8cb58;
+    cursor:pointer;
 }
 .foodCategory[disabled]{
     background-color:white;
@@ -13,6 +14,10 @@
 }
 .entree:hover, .appetizer:hover{
     fill: none;
+}
+
+.foodCategory.toggled{
+    background-color: #FBBE21;
 }
 
 @media only screen and (min-width:812px) {
