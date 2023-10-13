@@ -48,9 +48,9 @@ export function Home({setCart}){
 
       const appetizerSelector= () =>{
         setTitle("Appetizers")
-        if (searchTerm && filteredMenu !== []) {
+        if (searchTerm && filteredMenu.length) {
             setFilteredMenu(filteredMenu.filter(item => item.foodCategory.toLowerCase().includes("appetizer")));
-        }else if(searchTerm && filteredMenu === []){
+        }else if(searchTerm && !filteredMenu.length){
             console.log(`${searchTerm} and appetizer`)
             setFilteredMenu(menu.filter(item => {
                 (item.name.toLowerCase().includes(searchTerm) || item.description.toLowerCase().includes(searchTerm)) && item.foodCategory.toLowerCase().includes("appetizer")
@@ -62,7 +62,7 @@ export function Home({setCart}){
       }
       const entreeSelector= () =>{
         setTitle("Entrees")
-        if (searchTerm && filteredMenu !== []) {
+        if (searchTerm && filteredMenu.length) {
             setFilteredMenu(filteredMenu.filter(item => item.foodCategory.toLowerCase().includes("entree")));
         }else if(searchTerm){
             setFilteredMenu(menu.filter(item => {
@@ -88,7 +88,7 @@ export function Home({setCart}){
       }
     
       const search = text => {
-        if (text && filteredMenu !==[]) {
+        if (text && filteredMenu.length) {
             const searchTerms = text.toLowerCase().trim().split(" ").filter(el => el);
             setFilteredMenu(filteredMenu.filter(item =>
                 searchTerms.every(term =>
@@ -96,7 +96,7 @@ export function Home({setCart}){
                 )
             ));
             setSearchTerm(searchTerms)
-        }else if(text && filteredMenu === []){
+        }else if(text && !filteredMenu.length){
             const searchTerms = text.toLowerCase().trim().split(" ").filter(el => el);
             setFilteredMenu(menu.filter(item =>
                 searchTerms.every(term =>
@@ -129,7 +129,7 @@ export function Home({setCart}){
 
     return(  
         <div className='home'> 
-            <img alt="delicious spaghetti with tomatoe sauce" className="topImage" src="https://i.imgur.com/MWgc0PL.jpg"></img> 
+            <div alt="delicious spaghetti with tomatoe sauce" className="topImage" src="https://i.imgur.com/MWgc0PL.jpg"></div>
             <div className='filterbar'><SearchBar onChange={search} placeholder="enter a word to search our menu" /></div>
             <div className='categoryButtons' >
                 <div onClick={appetizerSelector}><FoodCategory foodCategory={"Appetizer"} onClick={appetizerSelector}/></div>

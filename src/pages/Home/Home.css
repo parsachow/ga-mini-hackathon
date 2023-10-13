@@ -10,6 +10,11 @@
     width: 100%;
     margin-top: 1vw;
     margin-bottom: 20px;
+    background-image: url("https://i.imgur.com/MWgc0PL.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-attachment: fixed; */
+
 }
 .filterbar{
     display: flex;

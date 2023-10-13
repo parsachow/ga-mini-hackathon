@@ -37,6 +37,7 @@
     width: 60vw;
     overflow-y: hidden;
     position: relative;
+    cursor: pointer;
 }
 
 .menu-item-card__item__name {
