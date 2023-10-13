@@ -1,11 +1,18 @@
 import './MenuItem.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function MenuItem({ showFavIcon, favIconToggled, itemImgUrl, itemImgAlt, itemName, itemDescription, itemPrice, btnText, btnImg, onClick, itemId, tabindex, onToggleFavItem }) {
+    const navigate = useNavigate();
+
+    const handleKeyDown = (e) =>{
+        if(e.key==="Enter" || e.key===" "){
+            navigate(`/menu/${itemId}`);
+        }
+    }
     return (
         <div className="menu-item-card">
             <div className="imageAndHeart">
-                <img src={itemImgUrl} alt={itemImgAlt} className="menu-item-card__img" />
+                <img  tabIndex={tabindex || 1} src={itemImgUrl} alt={itemImgAlt} className="menu-item-card__img" />
                 {
                     showFavIcon &&
                     <div aria-label='add item to favorites' tabIndex={tabindex || 1} className={`menu-item-card__fav-icon${favIconToggled ? "--toggled" : ""}`} onClick={() => onToggleFavItem(itemId)}>
@@ -13,7 +20,7 @@ export default function MenuItem({ showFavIcon, favIconToggled, itemImgUrl, item
                     </div>
                 }
             </div>
-            <div className="menu-item-card__item">
+            <div tabIndex={tabindex || 1} onKeyDown={handleKeyDown} className="menu-item-card__item" onClick={()=>navigate(`/menu/${itemId}`)}>
                 <span tabIndex={tabindex || 1} className="menu-item-card__item__name">
                     {itemName}
                 </span>
